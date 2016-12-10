@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# Bash script for setting up configurations and plugins for Vim.
+
+git clone https://github.com/horea-chivu/vimconfig ~/.horea_chivu_vimconfig
+
+cd ~/.horea_chivu_vimconfig
+
+mkdir ~/.vim_backup
+sudo mv ~/.vim ~/.vim_backup					# Backup your current configurations,
+sudo mv ~/.vimrc ~/.vim_backup					#   plugins, snippets and so on.
+
+# Install the fonts
+mkdir ~/.fonts
+cp ~/.horea_chivu_vimconfig/fonts/* ~/.fonts/
+sudo fc-cache -f
+# PS: You will need to select Ubuntu Mono derivative Powerline from your
+#       terminal settings
+
+mkdir ~/.vim 
+ln -S ~/.horea_chivu_vimconfig/colors ~/.vim/				            # Link color schemes to vim dir
+ln -S ~/.horea_chivu_vimconfig/.vimrc ~/				                # Link .vimrc to user dir
+ln -S  ~/.horea_chivu_vimconfig/plugins.vim ~/.vim/                     # Copy the list of plugins
+
+# 1. Copy a file in ~ dir to partially resolve white borders problem in gVim
+# 2. Only for atom-dark gVim theme! If you have a diffrent theme, please update
+#       the hexa value of "bg[NORMAL] in .gtkrc-2.0 file.
+# 3. Only tested in: Mint 18
+ln -S ~/.horea_chivu_vimconfig/needed_files/.gtkrc-2.0 ~/
+ln -S ~/.horea_chivu_vimconfig/needed_files/.eslintrc ~/
+
+# Install required dependencies 
+sudo apt-get install vim vim-gtk
+sudo apt-get install build-essential cmake curl
+sudo apt-get install python-dev python3-dev
+curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+sudo apt-get install -y nodejs
+sudo npm install -g babel-eslint
+
+# Get and set Vundle and all the plugins in the plugins in plugins.vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
+
+cd ~/.vim/bundle/YouCompleteMe
+python3 install.py --all
+# The following error will pop up: "ERROR: msbuild or xbuild is required to build Omnisharp.".
+# Don't worry, is from C# and all other features but C# auto-complete will work fine.
+
+# On Fedora execute the following:
+
+# sudo ln -s ~/.vim /root/
+# sudo ln -s ~/.vimrc /root/
