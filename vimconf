@@ -42,6 +42,8 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 vim +PluginInstall +qall
 
+# Sometimes it my not execute. Execute it yourself, like you should normaly do,
+# FOr more information, check the YouCompleteMe Documentation
 python3 ~/.vim/bundle/YouCompleteMe/install.py --all
 # The following error will pop up: "ERROR: msbuild or xbuild is required to build Omnisharp.".
 # Don't worry, is from C# and all other features but C# auto-complete will work fine.
