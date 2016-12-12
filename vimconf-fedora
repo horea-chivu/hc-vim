@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# Bash script for setting up configurations and plugins for Vim.
+
+# Install required dependencies 
+sudo dnf -y install vim vim-X11
+sudo dnf -y install curl git
+sudo dnf install automake gcc gcc-c++ kernel-devel cmake
+sudo dnf -y groupinstall 'Development Tools'
+sudo dnf install python-devel python3-devel
+curl --silent --location https://rpm.nodesource.com/setup_7.x | bash -
+sudo dnf -y install nodejs
+sudo npm install -g babel-eslint
+
+git clone https://github.com/horea-chivu/vimconf ~/.horea_chivu_vimconfig
+
+cd ~/.horea_chivu_vimconfig
+
+mkdir ~/.vim_backup
+sudo mv ~/.vim ~/.vim_backup					# Backup your current configurations,
+sudo mv ~/.vimrc ~/.vim_backup					#   plugins, snippets and so on.
+
+# Install the fonts
+mkdir ~/.fonts
+
+cp ~/.horea_chivu_vimconfig/fonts/* ~/.fonts/
+sudo fc-cache -f
+# PS: You will need to select Ubuntu Mono derivative Powerline from your
+#       terminal settings
+
+mkdir ~/.vim 
+ln -s ~/.horea_chivu_vimconfig/colors ~/.vim/				            # Link color schemes to vim dir
+ln -s ~/.horea_chivu_vimconfig/.vimrc ~/				                # Link .vimrc to user dir
+ln -s  ~/.horea_chivu_vimconfig/plugins.vim ~/.vim/                     # Copy the list of plugins
+
+ln -s ~/.horea_chivu_vimconfig/needed_files/.eslintrc ~/
+
+# Get and set Vundle and all the plugins in the plugins in plugins.vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+vim +PluginInstall +qall
+
+# Sometimes it my not execute. Execute it yourself, like you should normaly do,
+# FOr more information, check the YouCompleteMe Documentation
+python3 ~/.vim/bundle/YouCompleteMe/install.py --all
+# The following error will pop up: "ERROR: msbuild or xbuild is required to build Omnisharp.".
+# Don't worry, is from C# and all other features but C# auto-complete will work fine.
+
+# On Fedora execute the following:
+
+#sudo su
+#mkdir /root/.vim 
+#ln -s ~/.horea_chivu_vimconfig/.vimrc /root/				                # Link .vimrc to user dir
+#ln -s  ~/.horea_chivu_vimconfig/plugins.vim /root/.vim/                     # Copy the list of plugins
+#ln -s  ~/.vim /root/                                                        # Copy the list of plugins
