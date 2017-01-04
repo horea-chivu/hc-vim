@@ -1,0 +1,83 @@
+#!/bin/bash
+
+# Bash script for setting up configurations and plugins for Vim.
+
+echo "
+ ██░ ██  ▄████▄      ██▒   █▓ ██▓ ███▄ ▄███▓
+ ██░ ██▒▒██▀ ▀█     ▓██░   █▒▓██▒▓██▒▀█▀ ██▒
+▒██▀▀██░▒▓█    ▄     ▓██  █▒░▒██▒▓██    ▓██░
+░▓█ ░██ ▒▓▓▄ ▄██▒     ▒██ █░░░██░▒██    ▒██ 
+░▓█▒░██▓▒ ▓███▀ ░      ▒▀█░  ░██░▒██▒   ░██▒
+ ▒ ░░▒░▒░ ░▒ ▒  ░      ░ ▐░  ░▓  ░ ▒░   ░  ░
+ ▒ ░▒░ ░  ░  ▒         ░ ░░   ▒ ░░  ░      ░
+ ░  ░░ ░░                ░░   ▒ ░░      ░   
+ ░  ░  ░░ ░               ░   ░         ░   
+        ░                ░                  
+"
+
+echo "
+ #### Clone the repository in ~/.hc-vim ####
+"
+
+git clone https://github.com/horea-chivu/vimconf ~/.hc-vim
+
+echo "
+ #### Backup your old vim configurations(if exists) ####
+"
+
+mkdir ~/.vim_backup
+sudo mv ~/.vim ~/.vim_backup					# Backup your current configurations,
+sudo mv ~/.vimrc ~/.vim_backup					#   plugins, snippets and so on.
+
+echo "
+ #### Create .vim directory and make links ####
+"
+
+mkdir ~/.vim 
+ln -s ~/.hc-vim/colors ~/.vim/				            # Link color schemes to vim dir
+ln -s ~/.hc-vim/.vimrc ~/				                # Link .vimrc to user dir
+ln -s  ~/.hc-vim/plugins.vim ~/.vim/                     # Copy the list of plugins
+
+echo "
+ #### Clone Vundle repository ####
+"
+
+# Get and set Vundle and all the plugins in the plugins in plugins.vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+echo "
+ #### Install the plugins ####
+"
+
+vim +PluginInstall +qall
+
+echo "
+
+--- For Ubuntu based OS(Ubuntu, Mint, etc).
+
+"
+
+echo "
+Please execute ~/ubuntu-dependencies file yourself."
+echo " 
+command: bash ~/.hc-vim/ubuntu-dependencies"
+echo "
+Mandatory for vim to work correctly with plugins.
+"
+
+echo "--- For Fedora OS."
+
+echo "
+
+Please execute ~/fedora-dependencies file yourself."
+echo "
+command: bash ~/.hc-vim/fedora-dependencies"
+echo "
+Mandatory for vim to work correctly with plugins.
+"
+
+
+# On Fedora execute the following:
+
+# sudo ln -s ~/.vim /root/
+# sudo ln -s ~/.vimrc /root/

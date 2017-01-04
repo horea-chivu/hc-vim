@@ -1,13 +1,15 @@
 " vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
 "
-"  __ __   ___   ____     ___   ____  __  _____     __ __  ____  ___ ___ 
-" |  |  | /   \ |    \   /  _] /    ||  |/ ___/    |  |  ||    ||   |   |
-" |  |  ||     ||  D  ) /  [_ |  o  ||_ (   \_     |  |  | |  | | _   _ |
-" |  _  ||  O  ||    / |    _]|     |  \|\__  |    |  |  | |  | |  \_/  |
-" |  |  ||     ||    \ |   [_ |  _  |    /  \ |    |  :  | |  | |   |   |
-" |  |  ||     ||  .  \|     ||  |  |    \    |     \   /  |  | |   |   |
-" |__|__| \___/ |__|\_||_____||__|__|     \___|      \_/  |____||___|___| 
-
+"  ██░ ██  ▄████▄      ██▒   █▓ ██▓ ███▄ ▄███▓
+"  ██░ ██▒▒██▀ ▀█     ▓██░   █▒▓██▒▓██▒▀█▀ ██▒
+" ▒██▀▀██░▒▓█    ▄     ▓██  █▒░▒██▒▓██    ▓██░
+" ░▓█ ░██ ▒▓▓▄ ▄██▒     ▒██ █░░░██░▒██    ▒██ 
+" ░▓█▒░██▓▒ ▓███▀ ░      ▒▀█░  ░██░▒██▒   ░██▒
+"  ▒ ░░▒░▒░ ░▒ ▒  ░      ░ ▐░  ░▓  ░ ▒░   ░  ░
+"  ▒ ░▒░ ░  ░  ▒         ░ ░░   ▒ ░░  ░      ░
+"  ░  ░░ ░░                ░░   ▒ ░░      ░
+"  ░  ░  ░░ ░               ░   ░         ░
+"         ░                ░
 " How to work with the folds:
 " - zo - open
 " - zc - close
@@ -69,7 +71,7 @@
     scriptencoding utf-8
 
     set history=1000                    " Store a ton of history (default is 20)
-    set spell                           " Spell checking on
+    " set spell                           " Spell checking on
     set hidden                          " Allow buffer switching without saving
 
     " Restore cursor to file position in previous editing session
@@ -105,6 +107,19 @@
 " Vim UI {
 
     
+    " use 256 colors in terminal
+    if !has("gui_running")
+        set t_Co=256
+        set term=screen-256color
+    endif
+
+    " fix cursor display in cygwin
+    if has("win32unix")
+        let &t_ti.="\e[1 q"
+        let &t_SI.="\e[5 q"
+        let &t_EI.="\e[1 q"
+        let &t_te.="\e[0 q"
+    endif
     " set foldmethod=indent
     syntax enable				
     " GUI or not-GUI
@@ -313,6 +328,9 @@ so ~/.vim/plugins.vim
     let g:UltiSnipsExpandTrigger="<c-d>"
     let g:UltiSnipsJumpBackwardTrigger="<c-a>"
     let g:UltiSnipsJumpForwardTrigger="<c-d>"
+
+"----vim-airline
+noremap <F3> :Autoformat<CR>
 
 
 "----vim-airline

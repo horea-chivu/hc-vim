@@ -20,6 +20,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'honza/vim-snippets'
+Plugin 'Chiel92/vim-autoformat'
 
 Plugin 'dsawardekar/wordpress.vim'
 
