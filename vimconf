@@ -19,7 +19,7 @@ echo "
  #### Clone the repository in ~/.hc-vim ####
 "
 
-git clone https://github.com/horea-chivu/vimconf ~/.hc-vim
+git clone https://github.com/horea-chivu/hc-vim ~/.hc-vim
 
 echo "
  #### Backup your old vim configurations(if exists) ####
@@ -64,20 +64,3 @@ command: bash ~/.hc-vim/ubuntu-dependencies"
 echo "
 Mandatory for vim to work correctly with plugins.
 "
-
-echo "--- For Fedora OS."
-
-echo "
-
-Please execute ~/fedora-dependencies file yourself."
-echo "
-command: bash ~/.hc-vim/fedora-dependencies"
-echo "
-Mandatory for vim to work correctly with plugins.
-"
-
-
-# On Fedora execute the following:
-
-# sudo ln -s ~/.vim /root/
-# sudo ln -s ~/.vimrc /root/
