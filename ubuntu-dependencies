@@ -31,7 +31,7 @@ sudo apt-get install clang-format
 
 # Install the fonts
 mkdir ~/.fonts
-cp ~/.horea_chivu_vimconfig/fonts/* ~/.fonts/
+cp ~/.hc-vim/fonts/* ~/.fonts/
 sudo fc-cache -f
 # PS: You will need to select Ubuntu Mono derivative Powerline from your
 #       terminal settings
@@ -40,10 +40,10 @@ sudo fc-cache -f
 # 2. Only for atom-dark gVim theme! If you have a diffrent theme, please update
 #       the hexa value of "bg[NORMAL] in .gtkrc-2.0 file.
 # 3. Only tested in: Mint 18
-ln -s ~/.horea_chivu_vimconfig/needed_files/.gtkrc-2.0 ~/
+ln -s ~/.hc-vim/needed_files/.gtkrc-2.0 ~/
 
 # Conf for js linter used: eslint
-ln -s ~/.horea_chivu_vimconfig/needed_files/.eslintrc ~/
+ln -s ~/.hc-vim/needed_files/.eslintrc ~/
 
 # Sometimes it my not execute. Execute it yourself, like you should normaly do,
 # FOr more information, check the YouCompleteMe Documentation
