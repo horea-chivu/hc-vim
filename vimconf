@@ -58,7 +58,7 @@ echo "
 "
 
 echo "
-Please execute ~/ubuntu-dependencies file yourself."
+Please execute ubuntu-dependencies file yourself."
 echo " 
 command: bash ~/.hc-vim/ubuntu-dependencies"
 echo "
