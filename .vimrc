@@ -125,7 +125,8 @@
     " GUI or not-GUI
     if has("gui_running") 
         set background=dark         " Assume a dark background
-        colorscheme atom-dark
+        colorscheme solarized
+        set guifont=Monaco\ for\ Powerline\ 12		" Font and size
 
         " Allow to trigger background
         function! ToggleBG()
@@ -133,11 +134,11 @@
             " Inversion
             if s:tbg == "dark"
                 set background=light
-                colorscheme hemisu
+                colorscheme solarized
             else
                 set background=dark
-                colorscheme atom-dark
-                hi vertsplit guifg=bg guibg=black
+                colorscheme solarized
+                " hi vertsplit guifg=bg guibg=black
             endif
         endfunction
         noremap <leader>bg :call ToggleBG()<CR>
@@ -147,8 +148,6 @@
         set background=dark
         colorscheme hemisu
     endif
-
-    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 15		" Font and size
 
     set guioptions-=T "remove toolbar
     set guioptions-=r "remove right-hand scroll bar
@@ -336,11 +335,11 @@ noremap <F3> :Autoformat<CR>
 "----vim-airline
     set laststatus=2
     let g:airline#extensions#tabline#enabled = 1
-    let g:airline_powerline_fonts = 1
+    " let g:airline_powerline_fonts = 1
     if ! has("gui_running") 
         set timeoutlen=1000 ttimeoutlen=0
     else
-        let g:airline_theme='solarized'
+        let g:airline_theme='zenburn'
     endif
 
     let g:airline#extensions#tabline#enabled = 1
