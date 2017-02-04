@@ -1,0 +1,100 @@
+#!/bin/bash
+
+# Bash script for setting up configurations and plugins for Vim.
+
+echo "
+ ██░ ██  ▄████▄      ██▒   █▓ ██▓ ███▄ ▄███▓
+ ██░ ██▒▒██▀ ▀█     ▓██░   █▒▓██▒▓██▒▀█▀ ██▒
+▒██▀▀██░▒▓█    ▄     ▓██  █▒░▒██▒▓██    ▓██░
+░▓█ ░██ ▒▓▓▄ ▄██▒     ▒██ █░░░██░▒██    ▒██ 
+░▓█▒░██▓▒ ▓███▀ ░      ▒▀█░  ░██░▒██▒   ░██▒
+ ▒ ░░▒░▒░ ░▒ ▒  ░      ░ ▐░  ░▓  ░ ▒░   ░  ░
+ ▒ ░▒░ ░  ░  ▒         ░ ░░   ▒ ░░  ░      ░
+ ░  ░░ ░░                ░░   ▒ ░░      ░   
+ ░  ░  ░░ ░               ░   ░         ░   
+        ░                ░                  
+"
+
+echo "
+-- Cloning the hc-vim repository to ~/.hc-vim
+"
+git clone https://github.com/horea-chivu/hc-vim ~/.hc-vim
+
+# Backup old files that could possibly be replaced
+echo "
+-- Creating ~/.vim_backup directory
+"
+mkdir ~/.vim_backup
+echo "
+-- Moving your existing files to ~/.vim_backup
+"
+mv ~/.vim ~/.vim_backup
+mv ~/.vimrc ~/.vim_backup
+
+mkdir ~/.vim
+echo "
+-- Creating symbolic links for the configuration files
+"
+ln -s ~/.hc-vim/colors ~/.vim/
+ln -s ~/.hc-vim/.vimrc ~/
+ln -s  ~/.hc-vim/plugins.vim ~/.vim/
+
+echo "
+-- Cloning Vundle repository
+"
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+echo "
+-- Install the plugins
+"
+vim +PluginInstall +qall
+
+# Install the fonts
+echo "
+-- Creating ~/.fonts folder if not exits
+"
+if [ ! -d ~/.fonts ]; then
+    mkdir ~/.fonts
+fi
+echo "
+-- Coping all the fonts
+"
+cp -f ~/.hc-vim/fonts/* ~/.fonts/
+echo "
+-- Making the OS aware of the new fonts
+"
+sudo fc-cache -f
+# PS: You will need to select Ubuntu Mono derivative Powerline from your
+#       terminal settings
+
+# 1. Copy a file in ~ dir to partially resolve white borders problem in gVim
+# 2. Only for atom-dark gVim theme! If you have a diffrent theme, please update
+#       the hexa value of "bg[NORMAL] in .gtkrc-2.0 file.
+# 3. Only tested in: Mint 18
+echo "
+-- Creating symbolic links for .gtkrc-2.0 and .eslintrc
+"
+ln -s ~/.hc-vim/needed_files/.gtkrc-2.0 ~/
+
+# Conf for js linter used: eslint
+ln -s ~/.hc-vim/needed_files/.eslintrc ~/
+
+# Sometimes it my not execute. Execute it yourself, like you should normaly do,
+# FOr more information, check the YouCompleteMe Documentation
+echo "
+-- Compiling YouCompleteMe
+"
+python3 ~/.vim/bundle/YouCompleteMe/install.py --all
+# The following error will pop up: "ERROR: msbuild or xbuild is required to build Omnisharp.".
+# Don't worry, is from C# and all other features but C# auto-complete will work fine.
+
+echo "
+
+-- For Ubuntu based OS(Ubuntu, Mint, etc).
+
+Please execute ubuntu-dependencies file yourself.
+command: bash ~/.hc-vim/ubuntu-dependencies
+
+Mandatory for vim to work correctly with plugins.
+
+"

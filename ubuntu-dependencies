@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Install required dependencies 
+# Install required dependencies
 sudo apt-get -y install vim vim-gtk
 sudo apt-get -y install build-essential cmake curl
 sudo apt-get -y install python-dev python3-dev
@@ -25,29 +25,5 @@ npm install -g js-beautify
 # Typescript
 npm install -g typescript-formatter
 
-# C/C++/Objective C 
+# C/C++/Objective C
 sudo apt-get install clang-format
-
-
-# Install the fonts
-mkdir ~/.fonts
-cp ~/.hc-vim/fonts/* ~/.fonts/
-sudo fc-cache -f
-# PS: You will need to select Ubuntu Mono derivative Powerline from your
-#       terminal settings
-
-# 1. Copy a file in ~ dir to partially resolve white borders problem in gVim
-# 2. Only for atom-dark gVim theme! If you have a diffrent theme, please update
-#       the hexa value of "bg[NORMAL] in .gtkrc-2.0 file.
-# 3. Only tested in: Mint 18
-ln -s ~/.hc-vim/needed_files/.gtkrc-2.0 ~/
-
-# Conf for js linter used: eslint
-ln -s ~/.hc-vim/needed_files/.eslintrc ~/
-
-# Sometimes it my not execute. Execute it yourself, like you should normaly do,
-# FOr more information, check the YouCompleteMe Documentation
-python3 ~/.vim/bundle/YouCompleteMe/install.py --all
-# The following error will pop up: "ERROR: msbuild or xbuild is required to build Omnisharp.".
-# Don't worry, is from C# and all other features but C# auto-complete will work fine.
-

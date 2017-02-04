@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Remove symbolic files
+echo "
+-- Removing symbolic links
+"
+sudo rm ~/.gtkrc-2.0 ~/.eslintrc ~/.vimrc
+
+echo "
+-- Removing directories
+"
+sudo rm -R ~/.vim ~/.hc-vim

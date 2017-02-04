@@ -1,0 +1,4 @@
+#!/bin/bash
+
+bash ~/.hc-vim/vimremove
+bash <(curl -s https://raw.githubusercontent.com/horea-chivu/hc-vim/master/viminstall)
