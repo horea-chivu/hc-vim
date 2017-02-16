@@ -2,13 +2,13 @@
 
 ## How to install?
 
-Just execute in terminal: `bash <(curl -s https://raw.githubusercontent.com/horea-chivu/hc-vim/master/vimconf)`
+Just execute in terminal: `bash <(curl -s https://raw.githubusercontent.com/horea-chivu/hc-vim/master/viminstall)`
 
 Then you will need to execute *ubuntu-dependencies* file yourself in order to install required dependencies for vim to work correctly: `bash ~/.hc-vim/ubuntu-dependencies`.
 
 ## How to update?
 
-Go to repo's directory: `cd ~/.hc-vim/` and pull most recent updates with `git pull`.
+Just execute in your terminal `bash ~/.hc-vim/vimupdate`, and the scriptwill take care of the updates for you(it might take a while becouse of download and compilation of YouCompleteMe).
 
 ## Other matters
 

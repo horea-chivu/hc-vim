@@ -1,12 +1,24 @@
 #!/bin/bash
 
+HOME_PREFIX=~/
+declare -a SYM_TO_REMOVE=(.vimrc .gtkrc-2.0 .eslintrc)
+declare -a DIRS_TO_REMOVE=(.vim .hc-vim)
+
 # Remove symbolic files
 echo "
 -- Removing symbolic links
 "
-sudo rm ~/.gtkrc-2.0 ~/.eslintrc ~/.vimrc
+for file in ${SYM_TO_REMOVE[@]}; do
+    if [ -e $HOME_PREFIX$file ]; then
+        sudo rm $HOME_PREFIX$file
+    fi
+done
 
 echo "
 -- Removing directories
 "
-sudo rm -R ~/.vim ~/.hc-vim
+for file in ${DIRS_TO_REMOVE[@]}; do
+    if [ -e $HOME_PREFIX$file ]; then
+        sudo rm -R $HOME_PREFIX$file
+    fi
+done

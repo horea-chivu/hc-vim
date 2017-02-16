@@ -33,7 +33,7 @@ hi ModeMsg      guifg=#990000 ctermfg=88   gui=NONE cterm=NONE
 hi MoreMsg      guifg=#990000 ctermfg=88   gui=NONE cterm=NONE
 hi Title        guifg=#EF5939 ctermfg=203  gui=NONE cterm=NONE
 hi WarningMsg   guifg=#EF5939 ctermfg=203  gui=NONE cterm=NONE
-hi SpecialKey   guifg=#FFFFFF ctermfg=231  guibg=#FF1100 ctermbg=196  gui=ITALIC cterm=NONE
+hi SpecialKey   guifg=#AAAAAA ctermfg=231  guibg=#F8F8FF ctermbg=255  gui=ITALIC cterm=NONE
 hi MatchParen   guifg=#000000 ctermfg=16   guibg=#CDCDFD ctermbg=189  gui=NONE cterm=NONE
 hi Underlined   guifg=#000000 ctermfg=16   gui=UNDERLINE cterm=UNDERLINE
 hi Directory    guifg=#990000 ctermfg=88   gui=NONE cterm=NONE
