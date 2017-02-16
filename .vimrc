@@ -108,9 +108,9 @@ endif
 syntax enable
 " GUI or not-GUI
 if has("gui_running")
-    set background=dark         " Assume a dark background
+    set background=dark                         " Assume a dark background
     colorscheme codeschool
-    set guifont=Monaco\ 12      " Font and size
+    set guifont=Monaco\ 12,Monospace\ 12        " Font and size
 
     " Allow to trigger background
     function! ToggleBG()
@@ -310,13 +310,15 @@ noremap <F3> :Autoformat<CR>
 "----vim-airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
-" let g:airline_powerline_fonts = 1
+
 if ! has("gui_running")
     set timeoutlen=1000 ttimeoutlen=0
-    let g:airline_theme='solarized'
 else
     let g:airline_theme='solarized'
 endif
+
+" let g:airline_powerline_fonts = 1
+
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
@@ -326,7 +328,6 @@ let g:airline#extensions#tabline#show_tab_nr = 0
 let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline#extensions#tabline#close_symbol = '×'
 let g:airline#extensions#tabline#show_close_button = 0
-" let g:airline_powerline_fonts = 1
 let g:airline_right_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_left_alt_sep= ''

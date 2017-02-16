@@ -64,23 +64,6 @@ echo "
 -- Install the plugins
 "
 vim +PluginInstall +qall
-
-# Install the fonts
-echo "
--- Creating ~/.fonts folder if not exits
-"
-if [ ! -d ~/.fonts ]; then
-    mkdir ~/.fonts
-fi
-echo "
--- Coping all the fonts
-"
-sudo cp -f ~/.hc-vim/fonts/* ~/.fonts/
-echo "
--- Making the OS aware of the new fonts
-"
-sudo fc-cache -f
-
 echo "
 
 -- For Ubuntu based OS(Ubuntu, Mint, etc).
@@ -88,6 +71,8 @@ echo "
 Please execute ubuntu-dependencies file yourself.
 command: bash ~/.hc-vim/ubuntu-dependencies
 
-Mandatory for vim to work correctly with plugins.
+! Mandatory for vim to have correct fonts, YouCompleteMe to work
+and to have some linters working!
+! Be sure your user is a sudoer when you run ubuntu-dependencies.!
 
 "

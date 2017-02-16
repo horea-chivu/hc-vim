@@ -1,7 +1,18 @@
 #!/bin/bash
 
+while true; do
+    read -p "Are you a sudoer?[Y/n]: " yn
+    case $yn in
+        [Yy]* ) echo "Ok. Let's proceed to password."; break;;
+        [Nn]* ) echo "It's not possible to run this script. Try running commands from this script on your own."; exit;;
+        * ) echo "Please answer Y(Yes) or n(no).";;
+    esac
+done
+
 # Install required dependencies
 sudo apt-get -y install vim vim-gtk
+
+# Dependencies for YOuCompleteMe
 sudo apt-get -y install build-essential cmake curl
 sudo apt-get -y install python-dev python3-dev
 
@@ -15,6 +26,22 @@ echo "
 python3 ~/.vim/bundle/YouCompleteMe/install.py --all
 # The following error will pop up: "ERROR: msbuild or xbuild is required to build Omnisharp.".
 # Don't worry, is from C# and all other features but C# auto-complete will work fine.
+
+#### Install the fonts ####
+echo "
+-- Creating ~/.fonts folder if not exits
+"
+if [ ! -d ~/.fonts ]; then
+    mkdir ~/.fonts
+fi
+echo "
+-- Coping all the fonts
+"
+sudo cp -f ~/.hc-vim/fonts/* ~/.fonts/
+echo "
+-- Making the OS aware of the new fonts
+"
+sudo fc-cache -f
 
 # Install nodejs + npm
 curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
@@ -31,10 +58,10 @@ sudo apt-get install pylint
 #### Code formatters ####
 
 # JS/HTML/CSS/JSON
-npm install -g js-beautify
+sudo npm install -g js-beautify
 
 # Typescript
-npm install -g typescript-formatter
+sudo npm install -g typescript typescript-formatter
 
 # C/C++/Objective C
 sudo apt-get install clang-format
