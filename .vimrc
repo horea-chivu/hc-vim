@@ -104,8 +104,6 @@ if has("win32unix")
     let &t_te.="\e[0 q"
 endif
 
-let g:solarized_bold = 1
-
 " set foldmethod=indent
 syntax enable
 " GUI or not-GUI
@@ -124,7 +122,6 @@ if has("gui_running")
         else
             set background=dark
             colorscheme codeschool
-            " hi vertsplit guifg=bg guibg=black
         endif
     endfunction
     noremap <leader>bg :call ToggleBG()<CR>
@@ -316,8 +313,9 @@ let g:airline#extensions#tabline#enabled = 1
 " let g:airline_powerline_fonts = 1
 if ! has("gui_running")
     set timeoutlen=1000 ttimeoutlen=0
+    let g:airline_theme='solarized'
 else
-    let g:airline_theme='luna'
+    let g:airline_theme='solarized'
 endif
 
 let g:airline#extensions#tabline#enabled = 1
