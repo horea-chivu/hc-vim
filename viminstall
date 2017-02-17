@@ -45,6 +45,8 @@ echo "
 ln -s ~/.hc-vim/colors ~/.vim/
 ln -s ~/.hc-vim/.vimrc ~/
 ln -s  ~/.hc-vim/plugins.vim ~/.vim/
+ln -s  ~/.hc-vim/plugins_settings.vim ~/.vim/
+ln -s  ~/.hc-vim/functions.vim ~/.vim/
 
 echo "
 -- Creating symbolic links for .gtkrc-2.0 and .eslintrc
