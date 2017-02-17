@@ -66,13 +66,23 @@ echo "
 vim +PluginInstall +qall
 echo "
 
--- For Ubuntu based OS(Ubuntu, Mint, etc).
+#### IMPORTANT ####
 
-Please execute ubuntu-dependencies file yourself.
-command: bash ~/.hc-vim/ubuntu-dependencies
+Please accept the execution of ubuntu-dependencies file.
+If you want todo it later, you can run the following command yourself:
+--> bash ~/.hc-vim/ubuntu-dependencies
 
 ! Mandatory for vim to have correct fonts, YouCompleteMe to work
 and to have some linters working!
-! Be sure your user is a sudoer when you run ubuntu-dependencies.!
 
+! Be sure your user is a sudoer when you run ubuntu-dependencies.!
 "
+
+while true; do
+    read -p "Do you want to proceed to installing dependencies?[Y/n]: " yn
+    case $yn in
+        [Yy]* ) bash ubuntu-dependencies; break;;
+        [Nn]* ) echo "Ok. Don't forget to run bash ~/.hc-vim/ubuntu-dependencies later!"; exit;;
+        * ) echo "Please answer Y(Yes) or n(no).";;
+    esac
+done

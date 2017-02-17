@@ -53,7 +53,7 @@ sudo apt-get install -y nodejs
 sudo npm install -g babel-eslint
 
 # Python
-sudo apt-get install pylint
+sudo apt-get install -y pylint
 
 #### Code formatters ####
 
@@ -64,4 +64,4 @@ sudo npm install -g js-beautify
 sudo npm install -g typescript typescript-formatter
 
 # C/C++/Objective C
-sudo apt-get install clang-format
+sudo apt-get install -y clang-format
