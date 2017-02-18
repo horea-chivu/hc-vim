@@ -196,29 +196,3 @@ augroup autosourcing
     autocmd!
     autocmd BufWritePost .vimrc source %
 augroup END
-
-"########################### Notes #################################
-" - Vinegar
-"   - '-' to go to the parrent dir
-"   - '%' to create a file
-"   - 'd' to create a dir
-"   - 'D' to delete a file or a dir
-"   - 'R' to rename a file or a dir
-"   - 'x' to execute a file
-"
-" - Emmet
-"       - <C-z><leader> to trigger the command
-"
-" - UltiSnip
-"       - ctrl-d to expand the snippet
-"       - ctrl-d to move forward
-"       - ctrl-a to move backwards
-"       - php-snippet plugin will provide the snippets
-"       - YouCompleteMe will show the snippet completions
-"
-" - Ctags
-"   - eg: ctags -R --exclude=node_modules|vendor
-"
-" - vim-php-namespace
-"   - we will need ctags
-"   - remaped to leader-Previousn
