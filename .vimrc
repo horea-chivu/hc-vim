@@ -22,6 +22,9 @@ if filereadable(expand("~/.vimrc.user.before"))
     source ~/.vimrc.user.before
 endif
 
+" Set leader key to <,>
+let mapleader=","
+
 " Source a sepparate .vim file that contans custom functions
 so ~/.vim/functions.vim
 
@@ -51,14 +54,10 @@ if !has('nvim')
     set incsearch                   " Find as you type search
     set wildmenu                    " Show list instead of just completing
     set smarttab
-    set ttyfast
     set tabpagemax=50               " Only show 15 tabs
     filetype plugin indent on   " Automatically detect file types.
     syntax on                   " Syntax highlighting
 endif
-
-" Set leader key to <,>
-let mapleader=","
 
 " Un UNIX, use Bash
 if !WINDOWS()
@@ -70,14 +69,15 @@ if has('mouse')
     set mouse=a
 endif
 
-set mousehide               " Hide the mouse cursor while typing
+set mousehide                   " Hide the mouse cursor while typing
 scriptencoding utf-8
-set hidden                          " Allow buffer switching without saving
+set hidden                      " Allow buffer switching without saving
 
-set guioptions-=T "remove toolbar
-set guioptions-=r "remove right-hand scroll bar
-set guioptions-=L "remove left-hand scroll bar. Fix for TagBar.
+set guioptions-=T               " Remove toolbar
+set guioptions-=r               " Remove right-hand scroll bar
+set guioptions-=L               " Remove left-hand scroll bar. Fix for TagBar.
 
+set ttyfast                     " Fast cursor
 set showmode                    " Display the current mode
 set cursorline                  " Highlight current line
 highlight clear LineNr          " Current line number row will have same background color in relative mode

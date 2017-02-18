@@ -35,14 +35,18 @@ Your old configurations, represented by *~/.vim* directory and *~/.vimrc* file w
     * **ap/vim-css-color** - highlights with colors the hexa CSS values and rgb and rgba color
     * **scrooloose/nerdcommenter** - to comment/uncomment multiple lines of code
     * **arnaud-lb/vim-php-namespace** - for inserting "use" statements automatically
+    * **craigemery/vim-autotag** - Generate ctags when you save a file in a project with ctags generated
 5. Code autocomplition and snippets:
     * **Valloric/YouCompleteMe** - YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine for Vim
+    * **shawncplus/phpcomplete.vim** - improved PHP omni-completion. Based on the default phpcomplete.vim
+    * **dsawardekar/wordpress.vim** - provide auto-completions for wordpress PHP files
     * **SirVer/ultisnips** - UltiSnips is the ultimate solution for snippets in Vim. It has tons of features and is very fast
     * **honza/vim-snippets** - contains snippets files for various programming languages
     * **tpope/vim-surround** - Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more.
 6. Improved syntax:
     * **StanAngeloff/php.vim** - updated version of the php.vim syntax file distributed with Vim
     * **pangloss/vim-javascript** - provides syntax highlighting and improved indentation
+    * **mxw/vim-jsx** - syntax highlighting and indenting for JSX
     * **leafgarland/typescript-vim** - syntax file and other settings for TypeScript
     * **digitaltoad/vim-pug** - syntax highlighting for Pug (formerly Jade) templates
 

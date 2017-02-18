@@ -20,9 +20,9 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 "----ctrlpvim
 
 " Shortcut for searching methods
-nmap <D-R> :CtrlPBufTag<Enter>
-nmap <D-e> :CtrlPMRUFiles<Enter>
-" let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+nmap <M-o> :CtrlPBufTag<Enter>
+nmap <M-i> :CtrlPTag<Enter>
+nmap <M-u> :CtrlPMRUFiles<Enter>
 let g:ctrlp_custom_ignore = {
             \ 'dir': 'node_modules\|vendor\|DS_Store\|\.git'
             \ }
