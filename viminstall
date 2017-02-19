@@ -61,7 +61,7 @@ if [ ! -e ~/.vim.user.after ]; then
     cp ~/.hc-vim/configuration_files/.vim.user.after ~/
 fi
 if [ ! -e ~/.vim.user.settings ]; then
-    cp ~/.hc-vim/configuration_files/.vim.user.after ~/
+    cp ~/.hc-vim/configuration_files/.vim.user.settings ~/
 fi
 
 echo "
