@@ -73,7 +73,6 @@ Your old configurations, represented by *~/.vim* directory and *~/.vimrc* file w
 6. Improved syntax:
     * **StanAngeloff/php.vim** - updated version of the php.vim syntax file distributed with Vim
     * **pangloss/vim-javascript** - provides syntax highlighting and improved indentation
-    * **mxw/vim-jsx** - syntax highlighting and indenting for JSX
     * **leafgarland/typescript-vim** - syntax file and other settings for TypeScript
     * **digitaltoad/vim-pug** - syntax highlighting for Pug (formerly Jade) templates
 

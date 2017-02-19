@@ -92,9 +92,6 @@ Plugin 'StanAngeloff/php.vim'
 " provides syntax highlighting and improved indentation
 Plugin 'pangloss/vim-javascript'
 
-" syntax highlighting and indenting for JSX
-Plugin 'mxw/vim-jsx'
-
 " syntax file and other settings for TypeScript
 Plugin 'leafgarland/typescript-vim'
 
