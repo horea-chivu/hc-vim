@@ -18,8 +18,13 @@
 
 
 " Use before config
-if filereadable(expand("~/.vimrc.user.before"))
-    source ~/.vimrc.user.before
+if filereadable(expand("~/.vim.user.before"))
+    source ~/.vim.user.before
+endif
+"
+" Load settings
+if filereadable(expand("~/.vim.user.settings"))
+    source ~/.vim.user.settings
 endif
 
 " Set leader key to <,>
@@ -115,15 +120,16 @@ set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 "------------Fonts and Colorschemes-------------"
 
 syntax enable
-if has("gui_running")
-    " GUI Colorscheme and font
+if !exists('g:hc_light_colorscheme')
     set background=dark                         " Assume a dark background
     colorscheme codeschool
-    set guifont=Monaco\ 12,Monospace\ 12        " Font and size
 else
-    " Non-GUI (terminal) colors
-    set background=dark
-    colorscheme codeschool
+    set background=light                         " Assume a dark background
+    colorscheme github
+endif
+if has("gui_running")
+    " The font
+    set guifont=Monaco\ 12,Monospace\ 12        " Font and size
 endif
 
 " use 256 colors in terminal
@@ -187,8 +193,8 @@ so ~/.vim/plugins.vim
 so ~/.vim/plugins_settings.vim
 
 " Use after config
-if filereadable(expand("~/.vimrc.user.after"))
-    source ~/.vimrc.user.after
+if filereadable(expand("~/.vim.user.after"))
+    source ~/.vim.user.after
 endif
 
 " Automaticlly source the .vimrc file

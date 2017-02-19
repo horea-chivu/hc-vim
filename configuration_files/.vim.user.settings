@@ -1,0 +1,6 @@
+"------- ----Settings--------------
+
+" Uncomment what you want to enable(remove the double quotes)
+
+" let g:hc_disable_plugin_vim_airline = 1
+" let g:hc_light_colorscheme = 1

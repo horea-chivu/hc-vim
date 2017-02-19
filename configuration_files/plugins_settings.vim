@@ -59,35 +59,35 @@ let g:UltiSnipsExpandTrigger="<c-d>"
 let g:UltiSnipsJumpBackwardTrigger="<c-a>"
 let g:UltiSnipsJumpForwardTrigger="<c-d>"
 
+
 "----vim-autoformat
 noremap <F3> :Autoformat<CR>
 
 
 "----vim-airline
-set laststatus=2
-let g:airline#extensions#tabline#enabled = 1
+if !exists('g:hc_disable_plugin_vim_airline')
+    set laststatus=2
+    let g:airline#extensions#tabline#enabled = 1
 
-if ! has("gui_running")
-    set timeoutlen=1000 ttimeoutlen=0
-else
-    let g:airline_theme='solarized'
+    if ! has("gui_running")
+        set timeoutlen=1000 ttimeoutlen=0
+    else
+        let g:airline_theme='solarized'
+    endif
+
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#show_buffers = 0
+    let g:airline#extensions#tabline#show_splits = 0
+    let g:airline#extensions#tabline#show_tabs = 1
+    let g:airline#extensions#tabline#show_tab_nr = 0
+    let g:airline#extensions#tabline#show_tab_type = 0
+    let g:airline#extensions#tabline#close_symbol = '×'
+    let g:airline#extensions#tabline#show_close_button = 0
+    let g:airline_right_alt_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_left_alt_sep= ''
+    let g:airline_left_sep = ''
 endif
-
-" let g:airline_powerline_fonts = 1
-
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#show_splits = 0
-let g:airline#extensions#tabline#show_tabs = 1
-let g:airline#extensions#tabline#show_tab_nr = 0
-let g:airline#extensions#tabline#show_tab_type = 0
-let g:airline#extensions#tabline#close_symbol = '×'
-let g:airline#extensions#tabline#show_close_button = 0
-let g:airline_right_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_left_alt_sep= ''
-let g:airline_left_sep = ''
 
 
 "----syntastic

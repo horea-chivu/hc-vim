@@ -21,11 +21,13 @@ Plugin 'tpope/vim-vinegar'
 
 "---- UI and visual code utilities:
 
-" lean & mean status/tabline for vim that's light as air
-Plugin 'vim-airline/vim-airline'
+if !exists('g:hc_disable_plugin_vim_airline')
+    " lean & mean status/tabline for vim that's light as air
+    Plugin 'vim-airline/vim-airline'
 
-" themes for vim-airline
-Plugin 'vim-airline/vim-airline-themes'
+    " themes for vim-airline
+    Plugin 'vim-airline/vim-airline-themes'
+endif
 
 " full path fuzzy file, buffer, mru, tag, ... finder for Vim.
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -101,13 +103,12 @@ Plugin 'digitaltoad/vim-pug'
 
 
 " Use plugins config
-    if filereadable(expand("~/.vimrc.user.plugins"))
-        source ~/.vimrc.user.plugins
-    endif
+if filereadable(expand("~/.vimrc.user.plugins"))
+    source ~/.vimrc.user.plugins
+endif
 
 "-----------endPlugins------------"
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-

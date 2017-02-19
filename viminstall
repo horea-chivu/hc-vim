@@ -46,10 +46,23 @@ echo "
 -- Creating symbolic links for the configuration files
 "
 ln -s ~/.hc-vim/colors ~/.vim/
-ln -s ~/.hc-vim/.vimrc ~/
-ln -s  ~/.hc-vim/plugins.vim ~/.vim/
-ln -s  ~/.hc-vim/plugins_settings.vim ~/.vim/
-ln -s  ~/.hc-vim/functions.vim ~/.vim/
+ln -s ~/.hc-vim/configuration_files/.vimrc ~/
+ln -s  ~/.hc-vim/configuration_files/plugins.vim ~/.vim/
+ln -s  ~/.hc-vim/configuration_files/plugins_settings.vim ~/.vim/
+ln -s  ~/.hc-vim/configuration_files/functions.vim ~/.vim/
+
+echo "
+-- Creating custom configuration files if not exist
+"
+if [ ! -e ~/.vim.user.before ]; then
+    cp ~/.hc-vim/configuration_files/.vim.user.before ~/
+fi
+if [ ! -e ~/.vim.user.after ]; then
+    cp ~/.hc-vim/configuration_files/.vim.user.after ~/
+fi
+if [ ! -e ~/.vim.user.settings ]; then
+    cp ~/.hc-vim/configuration_files/.vim.user.after ~/
+fi
 
 echo "
 -- Creating symbolic links for .gtkrc-2.0 and .eslintrc

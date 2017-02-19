@@ -44,7 +44,6 @@ endfunction
 call InitializeDirectories()
 
 " Allow to trigger background
-set background=dark
 function! ToggleBG()
     let s:tbg = &background
     " Inversion
@@ -57,6 +56,24 @@ function! ToggleBG()
     endif
 endfunction
 noremap <leader>bg :call ToggleBG()<CR>
+
+let s:hidden_all = 0
+function! ToggleHiddenAll()
+    if s:hidden_all  == 0
+        let s:hidden_all = 1
+        set noshowmode
+        set noruler
+        set laststatus=0
+        set noshowcmd
+    else
+        let s:hidden_all = 0
+        set showmode
+        set ruler
+        set laststatus=2
+        set showcmd
+    endif
+endfunction
+nnoremap <F2> :call ToggleHiddenAll()<CR>
 
 function! ResCur()
     if line("'\"") <= line("$")
