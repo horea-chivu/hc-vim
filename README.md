@@ -27,7 +27,7 @@ Then:
 * `sudo apt-get update`
 * `sudo apt-get install neovim`
 * `ln -s ~/.vim ~/.config/nvim`
-* `ln -s ~/.hc-vim/.vimrc ~/.config/nvim/init.vim`
+* `ln -s ~/.hc-vim/configuration_files/.vimrc ~/.config/nvim/init.vim`
 * `sudo pip3 install setuptools`
 * `sudo pip3 install --upgrade neovim`
 
