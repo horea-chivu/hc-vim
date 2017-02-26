@@ -51,6 +51,9 @@ ln -s  ~/.hc-vim/configuration_files/plugins.vim ~/.vim/
 ln -s  ~/.hc-vim/configuration_files/plugins_settings.vim ~/.vim/
 ln -s  ~/.hc-vim/configuration_files/functions.vim ~/.vim/
 
+# For Prolog
+ln -s ~/.hc-vim/syntax ~/.vim/
+
 echo "
 -- Creating custom configuration files if not exist
 "

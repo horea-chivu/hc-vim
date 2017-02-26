@@ -202,3 +202,6 @@ augroup autosourcing
     autocmd!
     autocmd BufWritePost .vimrc source %
 augroup END
+
+" *.pl stands for Prolog by now
+let g:filetype_pl="prolog"
