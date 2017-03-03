@@ -14,24 +14,12 @@ done
 sudo apt-get update
 
 # Dependencies
-sudo apt-get -y install build-essential cmake curl exuberant-ctags
+sudo apt-get -y install build-essential cmake curl exuberant-ctags git
 sudo apt-get -y install python-dev python3-dev
 sudo apt-get -y install python-dev python-pip python3-dev python3-pip xclip
 
 # Install required dependencies
 sudo apt-get -y install vim vim-gtk
-
-
-#### Auto Complete ####
-
-# Sometimes it my not execute. Execute it yourself, like you should normaly do,
-# For more information, check the YouCompleteMe Documentation
-echo "
--- Compiling YouCompleteMe
-"
-python3 ~/.vim/bundle/YouCompleteMe/install.py --all
-# The following error will pop up: "ERROR: msbuild or xbuild is required to build Omnisharp.".
-# Don't worry, is from C# and all other features but C# auto-complete will work fine.
 
 #### Install the fonts ####
 echo "
