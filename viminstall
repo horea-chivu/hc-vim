@@ -3,6 +3,30 @@
 # Bash script for setting up configurations and plugins for Vim.
 
 echo "
+
+#### IMPORTANT ####
+
+Please accept the execution of ubuntu-dependencies file.
+If you want todo it later, you can run the following command yourself:
+--> bash ~/.hc-vim/ubuntu-dependencies
+
+! Mandatory for vim to have correct fonts, YouCompleteMe to work
+and to have some linters working!
+
+! Be sure your user is a sudoer when you run ubuntu-dependencies.!
+
+"
+
+while true; do
+    read -p "Do you want to proceed to installing dependencies?[Y/n]: " yn
+    case $yn in
+        [Yy]* ) bash ~/.hc-vim/ubuntu-dependencies; break;;
+        [Nn]* ) echo "Ok. Don't forget to run bash ~/.hc-vim/ubuntu-dependencies later!"; exit;;
+        * ) echo "Please answer Y(Yes) or n(no).";;
+    esac
+done
+
+echo "
  ██░ ██  ▄████▄      ██▒   █▓ ██▓ ███▄ ▄███▓
  ██░ ██▒▒██▀ ▀█     ▓██░   █▒▓██▒▓██▒▀█▀ ██▒
 ▒██▀▀██░▒▓█    ▄     ▓██  █▒░▒██▒▓██    ▓██░
@@ -77,34 +101,12 @@ ln -s ~/.hc-vim/needed_files/.gtkrc-2.0 ~/
 ln -s ~/.hc-vim/needed_files/.eslintrc ~/
 
 echo "
--- Cloning Vundle repository
+-- Install Plug Vim
 "
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 echo "
 -- Install the plugins
 "
-vim +PluginInstall +qall
-echo "
-
-#### IMPORTANT ####
-
-Please accept the execution of ubuntu-dependencies file.
-If you want todo it later, you can run the following command yourself:
---> bash ~/.hc-vim/ubuntu-dependencies
-
-! Mandatory for vim to have correct fonts, YouCompleteMe to work
-and to have some linters working!
-
-! Be sure your user is a sudoer when you run ubuntu-dependencies.!
-
-"
-
-while true; do
-    read -p "Do you want to proceed to installing dependencies?[Y/n]: " yn
-    case $yn in
-        [Yy]* ) bash ~/.hc-vim/ubuntu-dependencies; break;;
-        [Nn]* ) echo "Ok. Don't forget to run bash ~/.hc-vim/ubuntu-dependencies later!"; exit;;
-        * ) echo "Please answer Y(Yes) or n(no).";;
-    esac
-done
+vim +PlugInstall +qall

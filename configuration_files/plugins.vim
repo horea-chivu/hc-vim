@@ -1,21 +1,25 @@
-filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
 "
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+Plug 'VundleVim/Vundle.vim'
 
 "-----------Plugins------------"
 
 "---- File explorers
 
 " allows you to explore your filesystem and to open files and directories
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " enhances netrw(default vim file explorer)
-Plugin 'tpope/vim-vinegar'
+Plug 'tpope/vim-vinegar'
 
 
 
@@ -23,82 +27,84 @@ Plugin 'tpope/vim-vinegar'
 
 if !exists('g:hc_disable_plugin_vim_airline')
     " lean & mean status/tabline for vim that's light as air
-    Plugin 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline'
 
     " themes for vim-airline
-    Plugin 'vim-airline/vim-airline-themes'
+    Plug 'vim-airline/vim-airline-themes'
 endif
 
-" full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-Plugin 'ctrlpvim/ctrlp.vim'
+if !exists('g:hc_use_fzf_instead_of_ctrlp')
+    " full path fuzzy file, buffer, mru, tag, ... finder for Vim.
+    Plug 'ctrlpvim/ctrlp.vim'
+endif
 
 " the best Git wrapper of all time
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " shows a git diff in the 'gutter' (sign column)
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 
 " a syntax checking plugin for Vim
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 
 " format code with one button press
-Plugin 'Chiel92/vim-autoformat'
+Plug 'Chiel92/vim-autoformat'
 
 " highlights the matching HTML tag when the cursor is positioned on a tag
-Plugin 'gregsexton/matchtag'
+Plug 'gregsexton/matchtag'
 
 " greatly improves HTML and CSS writing
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 
 " highlights with colors the hexa CSS values and rgb and rgba color
-Plugin 'ap/vim-css-color'
+Plug 'ap/vim-css-color'
 
 " to comment/uncomment multiple lines of code
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 
 " for inserting "use" statements automatically
-Plugin 'arnaud-lb/vim-php-namespace'
+Plug 'arnaud-lb/vim-php-namespace'
 
 " Generate ctags when you save a file in a project with ctags generated
-Plugin 'craigemery/vim-autotag'
+Plug 'craigemery/vim-autotag'
 
 
 
 "---- Code autocomplition and snippets:
 
 " YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine for Vim
-Plugin 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --clang-completer --tern-completer' }
 
 " improved PHP omni-completion. Based on the default phpcomplete.vim
-Plugin 'shawncplus/phpcomplete.vim'
+Plug 'shawncplus/phpcomplete.vim'
 
 " provide auto-completions for wordpress PHP files
-Plugin 'dsawardekar/wordpress.vim'
+Plug 'dsawardekar/wordpress.vim'
 
 " UltiSnips is the ultimate solution for snippets in Vim. It has tons of features and is very fast
-Plugin 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 
 " contains snippets files for various programming languages
-Plugin 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 
 " Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more.
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 
 
 
 "---- Improved syntax:
 
 " updated version of the php.vim syntax file distributed with Vim
-Plugin 'StanAngeloff/php.vim'
+Plug 'StanAngeloff/php.vim'
 
 " provides syntax highlighting and improved indentation
-Plugin 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript'
 
 " syntax file and other settings for TypeScript
-Plugin 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 
 " syntax highlighting for Pug (formerly Jade) templates
-Plugin 'digitaltoad/vim-pug'
+Plug 'digitaltoad/vim-pug'
 
 
 
@@ -110,5 +116,4 @@ endif
 "-----------endPlugins------------"
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()            " required

@@ -21,7 +21,7 @@
 if filereadable(expand("~/.vim.user.before"))
     source ~/.vim.user.before
 endif
-"
+
 " Load settings
 if filereadable(expand("~/.vim.user.settings"))
     source ~/.vim.user.settings
