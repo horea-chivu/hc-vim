@@ -3,6 +3,11 @@
 # Bash script for setting up configurations and plugins for Vim.
 
 echo "
+-- Cloning the hc-vim repository to ~/.hc-vim
+"
+git clone https://github.com/horea-chivu/hc-vim ~/.hc-vim
+
+echo "
 
 #### IMPORTANT ####
 
@@ -41,11 +46,6 @@ echo "
 HOME_PREFIX=~/
 BACKUP_PREFIX=~/.vim_backup/
 declare -a FILES_TO_BACKUP=(.vim .vimrc .eslintrc .gtkrc-2.0)
-
-echo "
--- Cloning the hc-vim repository to ~/.hc-vim
-"
-git clone https://github.com/horea-chivu/hc-vim ~/.hc-vim
 
 # Backup old files that could possibly be replaced
 echo "

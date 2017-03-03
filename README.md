@@ -14,9 +14,9 @@ Then execute in terminal: `bash <(curl -s https://raw.githubusercontent.com/hore
 
 Then you will be promted to execute *ubuntu-dependencies* file in order to install required dependencies for Vim to work correctly. If you want to do it later, manually, run the followig command: `bash ~/.hc-vim/ubuntu-dependencies`.
 
-## Install and link with Neovim
+## Integration with Neovim
 
-Neovim *is* the future of Vim.
+Neovim *is*/*could be* the future of Vim.
 After running *ubuntu-dependencies* one way or another, you may install Neovim, and link it with this configuratins and plugins.
 
 To install, pick **just one** of the following repos and run in the terminal:
@@ -45,7 +45,7 @@ Your old configurations, represented by *~/.vim* directory and *~/.vimrc* file w
 
 1. Gorgeous font(Monaco) and customized colorschemes(github for day, codeschool for night)
 2. Modern .vimrc configuration
-3. Vundle(plugin manager) support with included plugins
+3. Plug Vim(plugin manager) support with included plugins
 4. File explorers:
     * **scrooloose/nerdtree** - allows you to explore your filesystem and to open files and directories
     * **tpope/vim-vinegar** - enhances netrw(default Vim file explorer)
