@@ -33,10 +33,12 @@ if !exists('g:hc_disable_plugin_vim_airline')
     Plug 'vim-airline/vim-airline-themes'
 endif
 
-if !exists('g:hc_use_fzf_instead_of_ctrlp')
-    " full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-    Plug 'ctrlpvim/ctrlp.vim'
-endif
+" full path fuzzy file, buffer, mru, tag, ... finder for Vim.
+Plug 'ctrlpvim/ctrlp.vim'
+
+" A ctrlp-like plugin that works only in terminal
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " the best Git wrapper of all time
 Plug 'tpope/vim-fugitive'

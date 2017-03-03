@@ -37,15 +37,20 @@ Now Neovim is fully functional with this configurations and plugins!
 
 Just execute in your terminal `bash ~/.hc-vim/vimupdate`, and the script will take care of the updates for you(it might take a while becouse of download and compilation of YouCompleteMe). You will probably be promted to run *ubuntu-dependencies* again. Please, do it.
 
-## Other matters
+## Backup and personal settings
 
-Your old configurations, represented by *~/.vim* directory and *~/.vimrc* file will be moved in **~/.vim_backup** directory.
+1. Your old configurations, represented by *~/.vim* directory and *~/.vimrc* file will be moved in **~/.vim_backup** directory.
+2. 4 files will be created where you can put your personal vim configurations:
+    * `~/.vim.user.settings` - some predifined settings that you can enable or disable
+    * `~/.vim.user.before` - you can put here all your settings that will be sourced *before* anything else
+    * `~/.vim.user.after` - you can put here all your settings that will be sourced *after* anything else
+
 
 ## Features
 
 1. Gorgeous font(Monaco) and customized colorschemes(github for day, codeschool for night)
 2. Modern .vimrc configuration
-3. Plug Vim(plugin manager) support with included plugins
+3. **Plug Vim** - a very efficient plugin manager with a lot of features.
 4. File explorers:
     * **scrooloose/nerdtree** - allows you to explore your filesystem and to open files and directories
     * **tpope/vim-vinegar** - enhances netrw(default Vim file explorer)
@@ -163,4 +168,4 @@ Instructions in here: https://github.com/tpope/vim-surround
 * `<Leader>ei` - trigger installation of plugins(you will need to save and source configurations files modified first)
 
 ###Generate ctags
-You will need **exuberant-ctags**(included in *ubuntu-dependencies*). To generate the ctags you will need to `cd` to project root directory and run from terminal `ctags -R .`. If you want to exlude directories(like vendor and node_modules) you may run `ctags -R --exclude=node_modules --exclude=vendor .`. After this you're set.
+You will need **exuberant-ctags**(included in *ubuntu-dependencies*). To generate the ctags you will need to `cd` to project root directory and run from terminal `ctags -R .`. If you want to exlude directories(like vendor and node_modules) you may run `ctags -R --exclude=node_modules --exclude=vendor .`. After this you're set. In addition to the plugins above that use ctags(like vim-php-namespace and ctrlp), there are very good default Vim mappings: `<C-]>'(jump to the definition of the funtion under the cursor), `<C-t>(goes back), `<C-w><C-]>`(open the definition in a horizontal split) and `:tag name_of_the_tag`.
