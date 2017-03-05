@@ -19,9 +19,9 @@ Then you will be promted to execute *ubuntu-dependencies* file in order to insta
 Neovim *is*/*could be* the future of Vim.
 After running *ubuntu-dependencies* one way or another, you may install Neovim, and link it with this configuratins and plugins.
 
-To install, pick **just one** of the following repos and run in the terminal:
+To install, pick **just one** of the following repos and run in the terminal(the first one is recomended):
 * `sudo add-apt-repository ppa:neovim-ppa/stable`
-* `sudo add-apt-repository ppa:neovim-ppa/stable`
+* `sudo add-apt-repository ppa:neovim-ppa/unstable`
 
 Then:
 * `sudo apt-get update`
