@@ -52,16 +52,16 @@ endfunction
 " If not on neovim, apply basic settings
 if !has('nvim')
     set autoindent                  " Indent at the same level of the previous line
-    set nocompatible        " be iMproved, required
+    set nocompatible                " be iMproved, required
     set autoread
-    set history=1000                    " Store a ton of history (default is 20)
+    set history=1000                " Store a ton of history (default is 20)
     set hlsearch                    " Highlight search terms
     set incsearch                   " Find as you type search
     set wildmenu                    " Show list instead of just completing
     set smarttab
     set tabpagemax=50               " Only show 15 tabs
-    filetype plugin indent on   " Automatically detect file types.
-    syntax on                   " Syntax highlighting
+    filetype plugin indent on       " Automatically detect file types.
+    syntax on                       " Syntax highlighting
 endif
 
 " Un UNIX, use Bash
@@ -78,6 +78,7 @@ set mousehide                   " Hide the mouse cursor while typing
 scriptencoding utf-8
 set hidden                      " Allow buffer switching without saving
 
+set guioptions-=m               " Remove menu toolbar
 set guioptions-=T               " Remove toolbar
 set guioptions-=r               " Remove right-hand scroll bar
 set guioptions-=L               " Remove left-hand scroll bar. Fix for TagBar.
@@ -129,7 +130,7 @@ else
 endif
 if has("gui_running")
     " The font
-    set guifont=Monaco\ 12,Monospace\ 12        " Font and size
+    set guifont=Monaco\ 14,Monospace\ 14        " Font and size
 endif
 
 " use 256 colors in terminal

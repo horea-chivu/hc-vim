@@ -28,6 +28,9 @@ let g:ctrlp_custom_ignore = {
             \ }
 let g:ctrlp_match_window = 'top,order:ttb,min:1,max:30,results:30'
 
+"----YouCompleteMe
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
 
 "----vim-php-namespaces
 

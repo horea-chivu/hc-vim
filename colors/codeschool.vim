@@ -11,7 +11,7 @@ endif
 
 let g:colors_name = "codeschool"
 
-hi Cursor ctermfg=16 ctermbg=145 cterm=NONE guifg=#182227 guibg=#9ea7a6 gui=NONE
+hi Cursor ctermfg=16 ctermbg=145 cterm=NONE guifg=#182227 guibg=#fafafa gui=NONE
 hi Visual ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#3f4b52 gui=NONE
 hi CursorLine ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#2e373b gui=NONE
 hi CursorColumn ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#2e373b gui=NONE
@@ -28,7 +28,7 @@ hi Search ctermfg=234 ctermbg=102 cterm=bold guifg=#182227 guibg=#8bb664 gui=bol
 hi Directory ctermfg=68 ctermbg=NONE cterm=NONE guifg=#3c98d9 guibg=NONE gui=NONE
 hi Folded ctermfg=247 ctermbg=16 cterm=NONE guifg=#9a9a9a guibg=#182227 gui=NONE
 
-hi Normal ctermfg=231 ctermbg=235 cterm=NONE guifg=#f0f0f0 guibg=#252c31 gui=NONE
+hi Normal ctermfg=231 ctermbg=235 cterm=NONE guifg=#dcdcdc guibg=#252c31 gui=NONE
 hi Boolean ctermfg=68 ctermbg=NONE cterm=NONE guifg=#3c98d9 guibg=NONE gui=NONE
 hi Character ctermfg=68 ctermbg=NONE cterm=NONE guifg=#3c98d9 guibg=NONE gui=NONE
 hi Comment ctermfg=247 ctermbg=NONE cterm=NONE guifg=#9a9a9a guibg=NONE gui=italic
