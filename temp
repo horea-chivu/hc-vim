@@ -1,0 +1,72 @@
+#!/bin/bash
+
+echo "
+ ██░ ██  ▄████▄      ██▒   █▓ ██▓ ███▄ ▄███▓
+ ██░ ██▒▒██▀ ▀█     ▓██░   █▒▓██▒▓██▒▀█▀ ██▒
+▒██▀▀██░▒▓█    ▄     ▓██  █▒░▒██▒▓██    ▓██░
+░▓█ ░██ ▒▓▓▄ ▄██▒     ▒██ █░░░██░▒██    ▒██ 
+░▓█▒░██▓▒ ▓███▀ ░      ▒▀█░  ░██░▒██▒   ░██▒
+ ▒ ░░▒░▒░ ░▒ ▒  ░      ░ ▐░  ░▓  ░ ▒░   ░  ░
+ ▒ ░▒░ ░  ░  ▒         ░ ░░   ▒ ░░  ░      ░
+ ░  ░░ ░░                ░░   ▒ ░░      ░   
+ ░  ░  ░░ ░               ░   ░         ░   
+        ░                ░                  
+"
+HOME_PREFIX=~/
+BACKUP_PREFIX=~/.vim_backup/
+declare -a FILES_TO_BACKUP=(.vim .vimrc)
+
+# Backup old files that could possibly be replaced
+echo "
+-- Creating ~/.vim_backup directory(if not allready exist)
+"
+if [ ! -d ~/.vim_backup ]; then
+    mkdir ~/.vim_backup
+fi
+echo "
+-- Moving your existing(if exist) files to ~/.vim_backup
+"
+for file in ${FILES_TO_BACKUP[@]}; do
+    if [ ! -e $BACKUP_PREFIX$file ]; then
+        if [ -e $HOME_PREFIX$file ]; then
+            mv $HOME_PREFIX$file ~/.vim_backup
+        fi
+    fi
+done
+
+mkdir ~/.vim
+echo "
+-- Creating symbolic links for the configuration files
+"
+ln -s ~/.hc-vim/colors ~/.vim/
+ln -s ~/.hc-vim/configuration_files/.vimrc ~/
+ln -s  ~/.hc-vim/configuration_files/plugins.vim ~/.vim/
+ln -s  ~/.hc-vim/configuration_files/plugins_settings.vim ~/.vim/
+ln -s  ~/.hc-vim/configuration_files/functions.vim ~/.vim/
+
+# For Prolog
+ln -s ~/.hc-vim/syntax ~/.vim/
+
+echo "
+-- Creating custom configuration files if not exist
+"
+if [ ! -e ~/.vim.user.before ]; then
+    cp ~/.hc-vim/configuration_files/.vim.user.before ~/
+fi
+if [ ! -e ~/.vim.user.after ]; then
+    cp ~/.hc-vim/configuration_files/.vim.user.after ~/
+fi
+if [ ! -e ~/.vim.user.settings ]; then
+    cp ~/.hc-vim/configuration_files/.vim.user.settings ~/
+fi
+
+echo "
+-- Install Plug Vim
+"
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+echo "
+-- Install the plugins
+"
+vim +PlugInstall +qall

@@ -1,0 +1,41 @@
+#!/bin/bash
+
+while true; do
+    read -p "Are you a sudoer?[Y/n]: " yn
+    case $yn in
+        [Yy]* ) echo "Ok. Let's proceed to password."; break;;
+        [Nn]* ) echo "It's not possible to run this script. Try running commands from this script on your own."; exit;;
+        * ) echo "Please answer Y(Yes) or n(no).";;
+    esac
+done
+
+# Dependencies
+brew install cmake curl ctags git
+brew install python3
+brew install node
+brew cask install xquartz
+brew install xclip
+
+brew install macvim
+
+# Install nodejs + npm
+brew install node
+
+#### Linters ####
+
+# Javascript
+npm install -g babel-eslint
+
+# Python
+pip3 install pylint
+
+#### Code formatters ####
+
+# JS/HTML/CSS/JSON
+npm install -g js-beautify
+
+# Typescript
+npm install -g typescript typescript-formatter
+
+# C/C++/Objective C
+brew install clang-format
