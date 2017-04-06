@@ -18,11 +18,13 @@ while true; do
                         rm -f $HOME_PREFIX$file
                     fi
                 done
+                break
                 ;;
         [Nn]* )
                 echo "
                 -- The .vim.user.* will not be removed
                 "
+                break
                 ;;
         * )
                 echo "
