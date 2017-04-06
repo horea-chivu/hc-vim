@@ -46,6 +46,10 @@ return has('macunix')
     return  (has('win32') || has('win64'))
 endfunction
 
+" Un UNIX, use Bash
+if !WINDOWS()
+    set shell=/bin/bash
+endif
 
 " Basics
 
@@ -62,12 +66,12 @@ if !has('nvim')
     set tabpagemax=50               " Only show 15 tabs
     filetype plugin indent on       " Automatically detect file types.
     syntax on                       " Syntax highlighting
+    if !has("gui_running")
+        set t_Co=256
+        set term=screen-256color
+    endif
 endif
 
-" Un UNIX, use Bash
-if !WINDOWS()
-    set shell=/bin/bash
-endif
 
 " Use mouse functionality if available
 if has('mouse')
@@ -119,6 +123,9 @@ set splitright                  " Puts new vsplit windows to the right of the cu
 set splitbelow                  " Puts new split windows to the bottom of the current
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 
+" *.pl stands for Prolog by now
+let g:filetype_pl="prolog"
+
 "------------Fonts and Colorschemes-------------"
 syntax enable
 if !exists('g:hc_light_colorscheme')
@@ -128,17 +135,10 @@ else
     set background=light                         " Assume a dark background
     colorscheme github
 endif
+
 if has("gui_running")
     " The font
     set guifont=Monaco\ 14,Monospace\ 14        " Font and size
-endif
-
-" use 256 colors in terminal
-if !has('nvim')
-    if !has("gui_running")
-        set t_Co=256
-        set term=screen-256color
-    endif
 endif
 
 if has("gui_macvim")
@@ -207,6 +207,3 @@ augroup autosourcing
     autocmd!
     autocmd BufWritePost .vimrc source %
 augroup END
-
-" *.pl stands for Prolog by now
-let g:filetype_pl="prolog"

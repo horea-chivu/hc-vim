@@ -7,9 +7,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-"
-" let Vundle manage Vundle, required
-Plug 'VundleVim/Vundle.vim'
 
 "-----------Plugins------------"
 
@@ -47,7 +44,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 " a syntax checking plugin for Vim
-Plug 'scrooloose/syntastic'
+if !exists('g:hc_disable_plugin_syntastic')
+    Plug 'scrooloose/syntastic'
+endif
 
 " format code with one button press
 Plug 'Chiel92/vim-autoformat'
@@ -62,7 +61,9 @@ Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
 
 " to comment/uncomment multiple lines of code
-Plug 'scrooloose/nerdcommenter'
+if !exists('g:hc_disable_plugin_nerdcommenter')
+    Plug 'scrooloose/nerdcommenter'
+endif
 
 " for inserting "use" statements automatically
 Plug 'arnaud-lb/vim-php-namespace'
@@ -75,39 +76,37 @@ Plug 'craigemery/vim-autotag'
 "---- Code autocomplition and snippets:
 
 " YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine for Vim
-Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --clang-completer --tern-completer' }
+if !exists('g:hc_disable_plugin_youcompleteme')
+    Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --clang-completer --tern-completer' }
+endif
 
 " improved PHP omni-completion. Based on the default phpcomplete.vim
-Plug 'shawncplus/phpcomplete.vim'
+if !exists('g:hc_disable_plugin_phpcomplete')
+    Plug 'shawncplus/phpcomplete.vim'
+endif
 
 " provide auto-completions for wordpress PHP files
-Plug 'dsawardekar/wordpress.vim'
+if !exists('g:hc_disable_plugin_wordpress')
+    Plug 'dsawardekar/wordpress.vim'
+endif
 
 " UltiSnips is the ultimate solution for snippets in Vim. It has tons of features and is very fast
-Plug 'SirVer/ultisnips'
+if !exists('g:hc_disable_plugin_ultisnips')
+    Plug 'SirVer/ultisnips'
+endif
 
 " contains snippets files for various programming languages
-Plug 'honza/vim-snippets'
+if !exists('g:hc_disable_plugin_vim-snippets')
+    Plug 'honza/vim-snippets'
+endif
 
 " Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more.
 Plug 'tpope/vim-surround'
 
 
-
 "---- Improved syntax:
 
-" updated version of the php.vim syntax file distributed with Vim
-Plug 'StanAngeloff/php.vim'
-
-" provides syntax highlighting and improved indentation
-Plug 'pangloss/vim-javascript'
-
-" syntax file and other settings for TypeScript
-Plug 'leafgarland/typescript-vim'
-
-" syntax highlighting for Pug (formerly Jade) templates
-Plug 'digitaltoad/vim-pug'
-
+Plug 'sheerun/vim-polyglot'
 
 
 " Use plugins config

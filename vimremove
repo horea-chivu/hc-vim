@@ -2,7 +2,36 @@
 
 HOME_PREFIX=~/
 declare -a SYM_TO_REMOVE=(.vimrc .gtkrc-2.0 .eslintrc)
+declare -a CONFIGS_TO_REMOVE=(.vim.user.before .vim.user.after .vim.user.settings)
 declare -a DIRS_TO_REMOVE=(.vim .hc-vim)
+
+while true; do
+    read -p "Do you want to remove the .vim.user.* files?[Y/n]: " yn
+    case $yn in
+
+        [Yy]* )
+                echo "
+                -- Removing .vim.user.* files related to this config
+                "
+                for file in ${CONFIGS_TO_REMOVE[@]}; do
+                    if [ -e $HOME_PREFIX$file ]; then
+                        rm -f $HOME_PREFIX$file
+                    fi
+                done
+                ;;
+        [Nn]* )
+                echo "
+                -- The .vim.user.* will not be removed
+                "
+                ;;
+        * )
+                echo "
+                Please answer Y(Yes) or n(no).
+                "
+                ;;
+    esac
+done
+
 
 # Remove symbolic files
 echo "
@@ -10,7 +39,7 @@ echo "
 "
 for file in ${SYM_TO_REMOVE[@]}; do
     if [ -e $HOME_PREFIX$file ]; then
-        sudo rm $HOME_PREFIX$file
+        rm -f $HOME_PREFIX$file
     fi
 done
 
@@ -19,6 +48,6 @@ echo "
 "
 for file in ${DIRS_TO_REMOVE[@]}; do
     if [ -e $HOME_PREFIX$file ]; then
-        sudo rm -R $HOME_PREFIX$file
+        rm -fR $HOME_PREFIX$file
     fi
 done

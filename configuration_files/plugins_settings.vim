@@ -29,7 +29,10 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_match_window = 'top,order:ttb,min:1,max:30,results:30'
 
 "----YouCompleteMe
-let g:ycm_autoclose_preview_window_after_insertion = 1
+
+if !exists('g:hc_disable_plugin_youcompleteme')
+    let g:ycm_autoclose_preview_window_after_insertion = 1
+endif
 
 
 "----vim-php-namespaces
@@ -58,9 +61,11 @@ let g:user_emmet_leader_key='<C-Z>'
 
 "----ultisnips
 
-let g:UltiSnipsExpandTrigger="<c-d>"
-let g:UltiSnipsJumpBackwardTrigger="<c-a>"
-let g:UltiSnipsJumpForwardTrigger="<c-d>"
+if !exists('g:hc_disable_plugin_ultisnips')
+    let g:UltiSnipsExpandTrigger="<c-d>"
+    let g:UltiSnipsJumpBackwardTrigger="<c-a>"
+    let g:UltiSnipsJumpForwardTrigger="<c-d>"
+endif
 
 
 "----vim-autoformat
@@ -94,16 +99,18 @@ endif
 
 
 "----syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+if !exists('g:hc_disable_plugin_syntastic')
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
 
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_python_checkers = ['flake8']
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
 
+    let g:syntastic_javascript_checkers = ['eslint']
+    let g:syntastic_python_checkers = ['flake8']
+endif
 
