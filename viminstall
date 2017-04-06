@@ -65,7 +65,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
         read -p "Do you want to proceed to installing dependencies?[Y/n]: " yn
         case $yn in
             [Yy]* ) bash ~/.hc-vim/ubuntu-dependencies; break;;
-            [Nn]* ) echo "Ok. Don't forget to run bash ~/.hc-vim/ubuntu-dependencies later!"; exit;;
+            [Nn]* ) echo "Ok. Don't forget to run bash ~/.hc-vim/ubuntu-dependencies later!" ;;
             * ) echo "Please answer Y(Yes) or n(no).";;
         esac
     done
