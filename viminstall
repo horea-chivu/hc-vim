@@ -82,6 +82,7 @@ elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
 
     echo "Sorry, can't do anything for you!"
     exit 1
+else
 fi
 
 HOME_PREFIX=~/
