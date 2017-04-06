@@ -74,8 +74,14 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 
 elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
     # Do something under 32 bits Windows NT platform
+
+    echo "Sorry, can't do anything for you!"
+    exit 1
 elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
     # Do something under 64 bits Windows NT platform
+
+    echo "Sorry, can't do anything for you!"
+    exit 1
 fi
 
 HOME_PREFIX=~/
