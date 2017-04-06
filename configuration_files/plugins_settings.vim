@@ -21,7 +21,7 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 
 " Shortcut for searching methods
 nmap <M-o> :CtrlPBufTag<Enter>
-nmap <M-i> :CtrlPTag<Enter>
+nnoremap <leader>. :CtrlPTag<cr>
 nmap <M-u> :CtrlPMRUFiles<Enter>
 let g:ctrlp_custom_ignore = {
             \ 'dir': 'node_modules\|vendor\|DS_Store\|\.git'

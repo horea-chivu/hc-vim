@@ -91,6 +91,7 @@ set backspace=indent,eol,start  " Backspace for dummies
 set linespace=5                 " Space between lines
 set number                      " Show current line number
 set relativenumber              " Show relative line numbers
+set nospell                     " Disable spell
 
 " Set line number bg to general background
 hi LineNr guibg=bg
@@ -119,7 +120,6 @@ set splitbelow                  " Puts new split windows to the bottom of the cu
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 
 "------------Fonts and Colorschemes-------------"
-
 syntax enable
 if !exists('g:hc_light_colorscheme')
     set background=dark                         " Assume a dark background
@@ -139,6 +139,10 @@ if !has('nvim')
         set t_Co=256
         set term=screen-256color
     endif
+endif
+
+if has("gui_macvim")
+    set guifont=Monaco:h18
 endif
 
 
