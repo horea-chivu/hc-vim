@@ -109,9 +109,9 @@ Plug 'tpope/vim-surround'
 Plug 'sheerun/vim-polyglot'
 
 
-" Use plugins config
-if filereadable(expand("~/.vimrc.user.plugins"))
-    source ~/.vimrc.user.plugins
+" Source user plugins list
+if filereadable(expand("~/.vim.user/.vim.user.plugins"))
+    source ~/.vim.user/.vim.user.plugins
 endif
 
 "-----------endPlugins------------"

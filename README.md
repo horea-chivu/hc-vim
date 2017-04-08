@@ -2,10 +2,11 @@
 
 ## Description
 
-hc-vim is a suite of configurations and plugins fully compatible with vim/vim-gtk/neovim, with recomanded packages to be installed on Ubuntu based OS.
+hc-vim is a suite of configurations and plugins fully compatible with vim/vim-gtk/neovim/macvim, with recomanded packages to be installed on Ubuntu based OS(with apt-get) and Mac OS(with brew). Also, the configuration is fully customizable with .vim.user* files.
 
 ## How to install?
 
+# On Ubuntu Based
 First, install vim, curl and git.
 * `sudo apt-get update`
 * `sudo apt-get -y install vim vim-gtk git curl`
@@ -14,11 +15,25 @@ Then execute in terminal: `bash <(curl -s https://raw.githubusercontent.com/hore
 
 Then you will be promted to execute *ubuntu-dependencies* file in order to install required dependencies for Vim to work correctly. If you want to do it later, manually, run the followig command: `bash ~/.hc-vim/ubuntu-dependencies`.
 
+# On Mac OS
+First, install vim, curl and git.
+* `brew install vim macvim git curl`
+
+Then execute in terminal: `bash <(curl -s https://raw.githubusercontent.com/horea-chivu/hc-vim/master/viminstall)`
+
+You will be asked if you installed the dependencies. If no, please inter **n**, install
+what is listed in ~/.hc-vim/mac-dependencies file and the run:
+* `bash ~/.hc-vim/vimupdate`
+and then when you are asked again the same question, press **y** and **Enter**.
+
+
 ## Integration with Neovim
 
 Neovim *is*/*could be* the future of Vim.
-After running *ubuntu-dependencies* one way or another, you may install Neovim, and link it with this configuratins and plugins.
+After the normal installation is done, you may install Neovim, and link it with 
+this configuratins and plugins.
 
+# On Ubuntu Based
 To install, pick **just one** of the following repos and run in the terminal(the first one is recomended):
 * `sudo add-apt-repository ppa:neovim-ppa/stable`
 * `sudo add-apt-repository ppa:neovim-ppa/unstable`
@@ -26,10 +41,18 @@ To install, pick **just one** of the following repos and run in the terminal(the
 Then:
 * `sudo apt-get update`
 * `sudo apt-get install neovim`
+* `mkdir ~/.config`
 * `ln -s ~/.vim ~/.config/nvim`
 * `ln -s ~/.hc-vim/configuration_files/.vimrc ~/.config/nvim/init.vim`
 * `sudo pip3 install setuptools`
 * `sudo pip3 install --upgrade neovim`
+
+# On Mac OS
+* `brew install neovim`
+Then:
+* `mkdir ~/.config`
+* `ln -s ~/.vim ~/.config/nvim`
+* `ln -s ~/.hc-vim/configuration_files/.vimrc ~/.config/nvim/init.vim`
 
 Now Neovim is fully functional with this configurations and plugins!
 
@@ -37,14 +60,18 @@ Now Neovim is fully functional with this configurations and plugins!
 
 Just execute in your terminal `bash ~/.hc-vim/vimupdate`, and the script will take care of the updates for you(it might take a while becouse of download and compilation of YouCompleteMe). You will probably be promted to run *ubuntu-dependencies* again. Please, do it.
 
-## Backup and personal settings
+## Settings and customizations
+5 files will be created where you can put your personal vim configurations:
+    * `~/.vim.user/.vim.user.settings` - some predifined settings that you can enable or disable(ex: you can disable plugins)
+    * `~/.vim.user/.vim.user.before` - you can put here all your settings that will be sourced *before* anything else
+    * `~/.vim.user/.vim.user.after` - you can put here all your settings that will be sourced *after* anything else
+    * `~/.vim.user/.vim.user.plugins` - you can add plugins
+    * `~/.vim.user/.vim.user.plugins_settings` - you can add settings for those plugins
 
-1. Your old configurations, represented by *~/.vim* directory and *~/.vimrc* file will be moved in **~/.vim_backup** directory.
-2. 4 files will be created where you can put your personal vim configurations:
-    * `~/.vim.user.settings` - some predifined settings that you can enable or disable
-    * `~/.vim.user.before` - you can put here all your settings that will be sourced *before* anything else
-    * `~/.vim.user.after` - you can put here all your settings that will be sourced *after* anything else
 
+## Backups
+
+Your old configurations, represented by *~/.vim* directory and *~/.vimrc* file will be moved in **~/.vim_backup** directory.
 
 ## Features
 
@@ -76,10 +103,7 @@ Just execute in your terminal `bash ~/.hc-vim/vimupdate`, and the script will ta
     * **honza/vim-snippets** - contains snippets files for various programming languages
     * **tpope/vim-surround** - surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more.
 6. Improved syntax:
-    * **StanAngeloff/php.vim** - updated version of the php.vim syntax file distributed with Vim
-    * **pangloss/vim-javascript** - provides syntax highlighting and improved indentation
-    * **leafgarland/typescript-vim** - syntax file and other settings for TypeScript
-    * **digitaltoad/vim-pug** - syntax highlighting for Pug (formerly Jade) templates
+    * **sheerun/vim-polyglot** - syntax highlighting for every language
 
 ## Usage
 
@@ -118,9 +142,7 @@ Press "-" - to go to the parrent dir. While you're in this file explorer:
 
 * **ctrlpvim**
     * `<C-p>` - search for files in this project(be sure Vim in correct diretory)
-    * `<M-o>` - search for tags in *this file*
-    * `<M-i>` - search for tags in this project if *if the ctags are generated for that project*
-    * `<M-u>` - search for MRU(most recent used) files
+    * `<Leader>.` - search for tags in this project if *if the ctags are generated for that project*
 
 * **vim-fugitive**
 Instructions in here: https://github.com/tpope/vim-fugitive
@@ -160,6 +182,11 @@ Instructions in here: https://github.com/tpope/vim-surround
 * `<C-h>` - Move to left split
 * `<C-l>` - Move to right split
 
+* `<Leader>tc` - Close the tab
+* `<Leader>r` - Next tab
+* `<Leader>w` - Previous tab
+* `<C-tab>` - Switch between tabs(works only in gui)
+
 * `<C-c>` - to copy to the OS clipboard the text *selected in VISUAL mode*
 * `<C-v>` - to paste from the OS clipboard the text *while you're in INSERT mode*
 
@@ -168,4 +195,4 @@ Instructions in here: https://github.com/tpope/vim-surround
 * `<Leader>ei` - trigger installation of plugins(you will need to save and source configurations files modified first)
 
 ###Generate ctags
-You will need **exuberant-ctags**(included in *ubuntu-dependencies*). To generate the ctags you will need to `cd` to project root directory and run from terminal `ctags -R .`. If you want to exlude directories(like vendor and node_modules) you may run `ctags -R --exclude=node_modules --exclude=vendor .`. After this you're set. In addition to the plugins above that use ctags(like vim-php-namespace and ctrlp), there are very good default Vim mappings: `<C-]>'(jump to the definition of the funtion under the cursor), `<C-t>(goes back), `<C-w><C-]>`(open the definition in a horizontal split) and `:tag name_of_the_tag`.
+You will need **exuberant-ctags**(included in *ubuntu-dependencies*). To generate the ctags you will need to `cd` to project root directory and run from terminal `ctags -R .`. If you want to exlude directories(like vendor and node_modules) you may run `ctags -R --exclude=node_modules --exclude=vendor .`. After this you're set. In addition to the plugins above that use ctags(like vim-php-namespace and ctrlp), there are very good default Vim mappings: `<C-]>`(jump to the definition of the funtion under the cursor), `<C-t>`(go back), `<C-w><C-]>`(open the definition in a horizontal split) and `:tag name_of_the_tag`.

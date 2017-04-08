@@ -18,13 +18,13 @@
 
 
 " Use before config
-if filereadable(expand("~/.vim.user.before"))
-    source ~/.vim.user.before
+if filereadable(expand("~/.vim.user/.vim.user.before"))
+    source ~/.vim.user/.vim.user.before
 endif
 
 " Load settings
-if filereadable(expand("~/.vim.user.settings"))
-    source ~/.vim.user.settings
+if filereadable(expand("~/.vim.user/.vim.user.settings"))
+    source ~/.vim.user/.vim.user.settings
 endif
 
 " Set leader key to <,>
@@ -169,9 +169,6 @@ vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa
 
-" ----Mapping for CTags
-
-nma <Leader>f :tag<space>
 
 " Close the tab
 nmap <Leader>tc :tabc<Enter>
@@ -191,6 +188,9 @@ nmap <C-K> <C-W><C-K>
 nmap <C-H> <C-W><C-H>
 nmap <C-L> <C-W><C-L>
 
+
+nma <Leader>f :tag<space>
+
 " Source a sepparate .vim file that contans the list of plugin
 so ~/.vim/plugins.vim
 
@@ -198,8 +198,8 @@ so ~/.vim/plugins.vim
 so ~/.vim/plugins_settings.vim
 
 " Use after config
-if filereadable(expand("~/.vim.user.after"))
-    source ~/.vim.user.after
+if filereadable(expand("~/.vim.user/.vim.user.after"))
+    source ~/.vim.user/.vim.user.after
 endif
 
 " Automaticlly source the .vimrc file

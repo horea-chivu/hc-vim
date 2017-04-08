@@ -114,3 +114,7 @@ if !exists('g:hc_disable_plugin_syntastic')
     let g:syntastic_python_checkers = ['flake8']
 endif
 
+" Source user plugins settings
+if filereadable(expand("~/.hc_settings/.vim.user.plugins_settings"))
+    source ~/.vimrc.user.plugins
+endif
