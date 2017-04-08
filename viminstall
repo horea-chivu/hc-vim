@@ -118,25 +118,26 @@ ln -s  ~/.hc-vim/configuration_files/functions.vim ~/.vim/
 # For Prolog
 ln -s ~/.hc-vim/syntax ~/.vim/
 
-mkdir ~/.vim.user
-
+if [ ! -d ~/.vim.user ]; then
+    mkdir ~/.vim.user
+fi
 echo "
 -- Creating custom configuration files if not exist
 "
 if [ ! -e ~/.vim.user/.vim.user.before ]; then
-    cp ~/.hc-vim/configuration_files/.vim.user.before ~/.vim.user
+    cp ~/.hc-vim/configuration_files/.vim.user.before ~/.vim.user/
 fi
 if [ ! -e ~/.vim.user/.vim.user.after ]; then
-    cp ~/.hc-vim/configuration_files/.vim.user.after ~/.vim.user
+    cp ~/.hc-vim/configuration_files/.vim.user.after ~/.vim.user/
 fi
 if [ ! -e ~/.vim.user/.vim.user.settings ]; then
-    cp ~/.hc-vim/configuration_files/.vim.user.settings ~/.vim.user
+    cp ~/.hc-vim/configuration_files/.vim.user.settings ~/.vim.user/
 fi
 if [ ! -e ~/.vim.user/.vim.user.plugins ]; then
-    cp ~/.hc-vim/configuration_files/.vim.user.plugins ~/.vim.user
+    cp ~/.hc-vim/configuration_files/.vim.user.plugins ~/.vim.user/
 fi
 if [ ! -e ~/.vim.user/.vim.user.plugins_settings ]; then
-    cp ~/.hc-vim/configuration_files/.vim.user.plugins_settings ~/.vim.user
+    cp ~/.hc-vim/configuration_files/.vim.user.plugins_settings ~/.vim.user/
 fi
 
 if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
