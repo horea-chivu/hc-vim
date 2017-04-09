@@ -20,6 +20,7 @@ echo "
 "
 git clone https://github.com/horea-chivu/hc-vim ~/.hc-vim
 
+# If is Mac OS
 if [ "$(uname)" == "Darwin" ]; then
     # Do something under Mac OS X platform
 
@@ -43,6 +44,7 @@ if [ "$(uname)" == "Darwin" ]; then
 
     declare -a FILES_TO_BACKUP=(.vim .vimrc .eslintrc)
 
+# If is Linux
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     # Do something under GNU/Linux platform
 
@@ -72,11 +74,14 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 
     declare -a FILES_TO_BACKUP=(.vim .vimrc .eslintrc .gtkrc-2.0)
 
+# If Windows 32bit
 elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
     # Do something under 32 bits Windows NT platform
 
     echo "Sorry, can't do anything for you!"
     exit 1
+
+# If Windows 64bit
 elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ]; then
     # Do something under 64 bits Windows NT platform
 
@@ -115,31 +120,52 @@ ln -s  ~/.hc-vim/configuration_files/plugins.vim ~/.vim/
 ln -s  ~/.hc-vim/configuration_files/plugins_settings.vim ~/.vim/
 ln -s  ~/.hc-vim/configuration_files/functions.vim ~/.vim/
 
-# For Prolog
+# 
 ln -s ~/.hc-vim/syntax ~/.vim/
 
-if [ ! -d ~/.vim.user ]; then
-    mkdir ~/.vim.user
-fi
 echo "
 -- Creating custom configuration files if not exist
 "
-if [ ! -e ~/.vim.user/.vim.user.before ]; then
+# If there are NOT any user settings
+if [ ! -d ~/.vim.user ]; then
+    mkdir ~/.vim.user
+
     cp ~/.hc-vim/configuration_files/.vim.user.before ~/.vim.user/
-fi
-if [ ! -e ~/.vim.user/.vim.user.after ]; then
     cp ~/.hc-vim/configuration_files/.vim.user.after ~/.vim.user/
-fi
-if [ ! -e ~/.vim.user/.vim.user.settings ]; then
     cp ~/.hc-vim/configuration_files/.vim.user.settings ~/.vim.user/
-fi
-if [ ! -e ~/.vim.user/.vim.user.plugins ]; then
     cp ~/.hc-vim/configuration_files/.vim.user.plugins ~/.vim.user/
-fi
-if [ ! -e ~/.vim.user/.vim.user.plugins_settings ]; then
     cp ~/.hc-vim/configuration_files/.vim.user.plugins_settings ~/.vim.user/
+
+    mkdir ~/.vim.user/UltiSnips
+    ln -s ~/.vim.user/UltiSnips ~/.vim/
+
+# If there are user settings
+else
+    if [ ! -e ~/.vim.user/.vim.user.before ]; then
+        cp ~/.hc-vim/configuration_files/.vim.user.before ~/.vim.user/
+    fi
+    if [ ! -e ~/.vim.user/.vim.user.after ]; then
+        cp ~/.hc-vim/configuration_files/.vim.user.after ~/.vim.user/
+    fi
+    if [ ! -e ~/.vim.user/.vim.user.settings ]; then
+        cp ~/.hc-vim/configuration_files/.vim.user.settings ~/.vim.user/
+    fi
+    if [ ! -e ~/.vim.user/.vim.user.plugins ]; then
+        cp ~/.hc-vim/configuration_files/.vim.user.plugins ~/.vim.user/
+    fi
+    if [ ! -e ~/.vim.user/.vim.user.plugins_settings ]; then
+        cp ~/.hc-vim/configuration_files/.vim.user.plugins_settings ~/.vim.user/
+    fi
+
+    if [ ! -d ~/.vim.user/UltiSnips ]; then
+        mkdir ~/.vim.user/UltiSnips
+        ln -s ~/.vim.user/UltiSnips ~/.vim/
+    else
+        ln -s ~/.vim.user/UltiSnips ~/.vim/
+    fi
 fi
 
+# If is Linux, configure gtk for the border problem
 if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     echo "
     -- Creating symbolic links for .gtkrc-2.0
@@ -148,10 +174,7 @@ if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     ln -s ~/.hc-vim/needed_files/.gtkrc-2.0 ~/
 fi
 
-echo "
--- Creating symbolic links for .eslintrc
-"
-# Conf for eslint
+# Configure eslint
 ln -s ~/.hc-vim/needed_files/.eslintrc ~/
 
 echo "

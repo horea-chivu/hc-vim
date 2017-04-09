@@ -2,11 +2,12 @@
 
 ## Description
 
-hc-vim is a suite of configurations and plugins fully compatible with vim/vim-gtk/neovim/macvim, with recomanded packages to be installed on Ubuntu based OS(with apt-get) and Mac OS(with brew). Also, the configuration is fully customizable with .vim.user* files.
+hc-vim is a suite of configurations and plugins fully compatible with vim/vim-gtk/neovim/macvim, with recomanded packages to be installed on Ubuntu based OS(with apt-get) and Mac OS(with brew). Also, the configuration is fully customizable with files in `~/.vim.user` directory(you can version this directory).
+In `~/.vim.user` you can disable plugins, add your own, add settings for you plugins, add vimscript configurations to run *before* and *after* the main configurations(in this way you can overwrite any settings) and add you custom snippets compatible with UltiSnips(instead of those included with vim-snippets).
 
-## How to install?
+# How to install?
 
-# On Ubuntu Based
+## On Ubuntu Based
 First, install vim, curl and git.
 * `sudo apt-get update`
 * `sudo apt-get -y install vim vim-gtk git curl`
@@ -15,7 +16,7 @@ Then execute in terminal: `bash <(curl -s https://raw.githubusercontent.com/hore
 
 Then you will be promted to execute *ubuntu-dependencies* file in order to install required dependencies for Vim to work correctly. If you want to do it later, manually, run the followig command: `bash ~/.hc-vim/ubuntu-dependencies`.
 
-# On Mac OS
+## On Mac OS
 First, install vim, curl and git.
 * `brew install vim macvim git curl`
 
@@ -27,13 +28,12 @@ what is listed in ~/.hc-vim/mac-dependencies file and the run:
 and then when you are asked again the same question, press **y** and **Enter**.
 
 
-## Integration with Neovim
+# Integration with Neovim
 
-Neovim *is*/*could be* the future of Vim.
 After the normal installation is done, you may install Neovim, and link it with 
 this configuratins and plugins.
 
-# On Ubuntu Based
+## On Ubuntu Based
 To install, pick **just one** of the following repos and run in the terminal(the first one is recomended):
 * `sudo add-apt-repository ppa:neovim-ppa/stable`
 * `sudo add-apt-repository ppa:neovim-ppa/unstable`
@@ -47,7 +47,7 @@ Then:
 * `sudo pip3 install setuptools`
 * `sudo pip3 install --upgrade neovim`
 
-# On Mac OS
+## On Mac OS
 * `brew install neovim`
 Then:
 * `mkdir ~/.config`
@@ -56,24 +56,24 @@ Then:
 
 Now Neovim is fully functional with this configurations and plugins!
 
-## How to update?
+# How to update?
 
 Just execute in your terminal `bash ~/.hc-vim/vimupdate`, and the script will take care of the updates for you(it might take a while becouse of download and compilation of YouCompleteMe). You will probably be promted to run *ubuntu-dependencies* again. Please, do it.
 
-## Settings and customizations
-5 files will be created where you can put your personal vim configurations:
+# Settings and customizations
+6 files will be created where you can put your personal vim configurations:
     * `~/.vim.user/.vim.user.settings` - some predifined settings that you can enable or disable(ex: you can disable plugins)
     * `~/.vim.user/.vim.user.before` - you can put here all your settings that will be sourced *before* anything else
     * `~/.vim.user/.vim.user.after` - you can put here all your settings that will be sourced *after* anything else
     * `~/.vim.user/.vim.user.plugins` - you can add plugins
     * `~/.vim.user/.vim.user.plugins_settings` - you can add settings for those plugins
+    * `~/.vim.user/UltiSnips` - you can add *programming_language*.snippets files where you can create UltiSnips snippets
 
-
-## Backups
+# Backups
 
 Your old configurations, represented by *~/.vim* directory and *~/.vimrc* file will be moved in **~/.vim_backup** directory.
 
-## Features
+# Features
 
 1. Gorgeous font(Monaco) and customized colorschemes(github for day, codeschool for night)
 2. Modern .vimrc configuration
@@ -105,7 +105,7 @@ Your old configurations, represented by *~/.vim* directory and *~/.vimrc* file w
 6. Improved syntax:
     * **sheerun/vim-polyglot** - syntax highlighting for every language
 
-## Usage
+# Usage
 
 **About mappings**: 
 `C` is `Ctrl` and `M` is `Alt`. For example: `<C-p>` is `Ctrl+p` and `<M-o>` is `Alt+o` pressed in the same time. `<Leader>` key is set to `,`(comma). For example: `<Leader>ev` is `,ev` pressed one after the other.
@@ -194,5 +194,5 @@ Instructions in here: https://github.com/tpope/vim-surround
 * `<Leader>ep` - open the plugin.vim(contains the list of plugins) in a new tab
 * `<Leader>ei` - trigger installation of plugins(you will need to save and source configurations files modified first)
 
-###Generate ctags
+#Generate ctags
 You will need **exuberant-ctags**(included in *ubuntu-dependencies*). To generate the ctags you will need to `cd` to project root directory and run from terminal `ctags -R .`. If you want to exlude directories(like vendor and node_modules) you may run `ctags -R --exclude=node_modules --exclude=vendor .`. After this you're set. In addition to the plugins above that use ctags(like vim-php-namespace and ctrlp), there are very good default Vim mappings: `<C-]>`(jump to the definition of the funtion under the cursor), `<C-t>`(go back), `<C-w><C-]>`(open the definition in a horizontal split) and `:tag name_of_the_tag`.

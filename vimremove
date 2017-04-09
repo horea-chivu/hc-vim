@@ -1,28 +1,23 @@
 #!/bin/bash
 
 HOME_PREFIX=~/
-declare -a SYM_TO_REMOVE=(.vimrc .gtkrc-2.0 .eslintrc)
-declare -a CONFIGS_TO_REMOVE=(.vim.user.before .vim.user.after .vim.user.settings)
+declare -a SYM_TO_REMOVE=(.vimrc .eslintrc)
 declare -a DIRS_TO_REMOVE=(.vim .hc-vim)
 
 while true; do
-    read -p "Do you want to remove the .vim.user.* files?[Y/n]: " yn
+    read -p "Do you want to remove the .vim.user directory(contain all your custom configurations, plugins, plugins settings)?[Y/n]: " yn
     case $yn in
 
         [Yy]* )
                 echo "
-                -- Removing .vim.user.* files related to this config
+                -- Removing ~/.vim.user directory
                 "
-                for file in ${CONFIGS_TO_REMOVE[@]}; do
-                    if [ -e $HOME_PREFIX$file ]; then
-                        rm -f $HOME_PREFIX$file
-                    fi
-                done
+                rm -fR ~/.vim.user
                 break
                 ;;
         [Nn]* )
                 echo "
-                -- The .vim.user.* will not be removed
+                -- The .vim.user directory will not be removed(you custom configuration files will be preserved)
                 "
                 break
                 ;;
@@ -44,6 +39,11 @@ for file in ${SYM_TO_REMOVE[@]}; do
         rm -f $HOME_PREFIX$file
     fi
 done
+
+# If is Linux, delete the symbolic link with gtk configuration
+if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    rm -f ~/.hc-vim/needed_files/.gtkrc-2.0
+fi
 
 echo "
 -- Removing directories
