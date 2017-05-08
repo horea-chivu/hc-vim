@@ -103,6 +103,9 @@ endif
 " Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more.
 Plug 'tpope/vim-surround'
 
+" Close the {, [, (, ', etc characters
+Plug 'spf13/vim-autoclose'
+
 
 "---- Improved syntax:
 

@@ -169,15 +169,24 @@ vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa
 
+" Correct common mistake
+cmap Q q
+cmap Q! q!
+cmap W w
+cmap WQ wq
+cmap wQ wq
+cmap Wq wq
 
 " Close the tab
 nmap <Leader>tc :tabc<Enter>
 
 " Next tab
 nmap <Leader>r :tabn<Enter>
+nmap L :tabn<Enter>
 
 " Previous tab
 nmap <Leader>w :tabp<Enter>
+nmap H :tabp<Enter>
 
 " Switch between tabs
 nmap <C-tab> <esc>:tabn<CR>
