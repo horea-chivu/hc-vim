@@ -197,6 +197,10 @@ nmap <C-K> <C-W><C-K>
 nmap <C-H> <C-W><C-H>
 nmap <C-L> <C-W><C-L>
 
+if has('nvim')
+    tnoremap <Esc> <C-\><C-n>
+endif
+
 
 nma <Leader>f :tag<space>
 
