@@ -102,7 +102,7 @@ Your old configurations, represented by *~/.vim* directory and *~/.vimrc* file w
     * **SirVer/ultisnips** - UltiSnips is the ultimate solution for snippets in Vim. It has tons of features and is very fast
     * **honza/vim-snippets** - contains snippets files for various programming languages
     * **tpope/vim-surround** - surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more
-    * 'spf13/vim-autoclose' - if you open a bracket, paren, brace, quote, etc, it automatically closes it
+    * **spf13/vim-autoclose** - if you open a bracket, paren, brace, quote, etc, it automatically closes it
 6. Improved syntax:
     * **sheerun/vim-polyglot** - syntax highlighting for every language
 
