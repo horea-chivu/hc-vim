@@ -101,7 +101,8 @@ Your old configurations, represented by *~/.vim* directory and *~/.vimrc* file w
     * **dsawardekar/wordpress.vim** - provide auto-completions for wordpress PHP files
     * **SirVer/ultisnips** - UltiSnips is the ultimate solution for snippets in Vim. It has tons of features and is very fast
     * **honza/vim-snippets** - contains snippets files for various programming languages
-    * **tpope/vim-surround** - surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more.
+    * **tpope/vim-surround** - surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more
+    * 'spf13/vim-autoclose' - if you open a bracket, paren, brace, quote, etc, it automatically closes it
 6. Improved syntax:
     * **sheerun/vim-polyglot** - syntax highlighting for every language
 
@@ -184,7 +185,9 @@ Instructions in here: https://github.com/tpope/vim-surround
 
 * `<Leader>tc` - Close the tab
 * `<Leader>r` - Next tab
+* `L` - Next tab
 * `<Leader>w` - Previous tab
+* `H` - Previous tab
 * `<C-tab>` - Switch between tabs(works only in gui)
 
 * `<C-c>` - to copy to the OS clipboard the text *selected in VISUAL mode*
@@ -193,6 +196,14 @@ Instructions in here: https://github.com/tpope/vim-surround
 * `<Leader>ev` - open the .vimrc in a new tab
 * `<Leader>ep` - open the plugin.vim(contains the list of plugins) in a new tab
 * `<Leader>ei` - trigger installation of plugins(you will need to save and source configurations files modified first)
+
+* If you accidentally pressed `:W` instead of `:w`, don't worry. It still works.
+    * `:Q` is `:q`
+    * `:Q!` is `:q!`
+    * `:W` is `:w`
+    * `:WQ` is `:wq`
+    * `:wQ` is `:wq`
+    * `:Wq` is `:wq`
 
 #Generate ctags
 You will need **exuberant-ctags**(included in *ubuntu-dependencies*). To generate the ctags you will need to `cd` to project root directory and run from terminal `ctags -R .`. If you want to exlude directories(like vendor and node_modules) you may run `ctags -R --exclude=node_modules --exclude=vendor .`. After this you're set. In addition to the plugins above that use ctags(like vim-php-namespace and ctrlp), there are very good default Vim mappings: `<C-]>`(jump to the definition of the funtion under the cursor), `<C-t>`(go back), `<C-w><C-]>`(open the definition in a horizontal split) and `:tag name_of_the_tag`.
