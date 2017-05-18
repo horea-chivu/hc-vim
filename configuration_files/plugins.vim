@@ -104,8 +104,7 @@ endif
 Plug 'tpope/vim-surround'
 
 " Close the {, [, (, ', etc characters
-Plug 'spf13/vim-autoclose'
-
+Plug 'Raimondi/delimitMate'
 
 "---- Improved syntax:
 

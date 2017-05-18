@@ -71,6 +71,9 @@ endif
 "----vim-autoformat
 noremap <F3> :Autoformat<CR>
 
+"----delimitMate
+let delimitMate_expand_cr = 1
+
 
 "----vim-airline
 if !exists('g:hc_disable_plugin_vim_airline')
