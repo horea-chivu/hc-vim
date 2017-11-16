@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "
+	NOTE: Is recomanded to run the commands step by step!
+"
+
 while true; do
     read -p "Are you a sudoer?[Y/n]: " yn
     case $yn in

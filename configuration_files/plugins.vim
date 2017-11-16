@@ -77,7 +77,7 @@ Plug 'craigemery/vim-autotag'
 
 " YouCompleteMe is a fast, as-you-type, fuzzy-search code completion engine for Vim
 if !exists('g:hc_disable_plugin_youcompleteme')
-    Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --clang-completer --tern-completer' }
+    Plug 'Valloric/YouCompleteMe', { 'do': 'python3 install.py --all' }
 endif
 
 " improved PHP omni-completion. Based on the default phpcomplete.vim

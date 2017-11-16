@@ -14,32 +14,43 @@ while true; do
 done
 
 # Dependencies
-brew install cmake curl ctags git
-brew install python3
-brew install node
-brew cask install xquartz
-brew install xclip
+sudo pacman -Sy base-devel cmake curl ctags xclip git
+sudo pacman -S python python-pip python2 python2-pip
+sudo pacman -S go
+sudo pacman -S mono
+curl https://sh.rustup.rs -sSf | sh
 
-brew install macvim
 
-# Install nodejs + npm
-brew install node
+# Install vim and gvim
+sudo pacman -S gvim
+
+# Install the monaco font
+yaourt -S ttf-monaco
+
+sudo pacman -S nodejs npm
+
+
 
 #### Linters ####
 
 # Javascript
-npm install -g babel-eslint
+sudo npm install -g babel-eslint
 
 # Python
-pip3 install pylint
+sudo pacman -S python-pylint python2-pylint
+
+
 
 #### Code formatters ####
 
 # JS/HTML/CSS/JSON
-npm install -g js-beautify
+sudo npm install -g js-beautify
 
 # Typescript
-npm install -g typescript typescript-formatter
+sudo npm install -g typescript typescript-formatter
 
 # C/C++/Objective C
-brew install clang-format
+sudo pacman -S clang
+
+source ~/.bash_profile
+source ~/.profile

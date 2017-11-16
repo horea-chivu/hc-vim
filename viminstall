@@ -31,13 +31,15 @@ if [ "$(uname)" == "Darwin" ]; then
     You will need to run every command from ~/.hc-vim/mac-dependencies
     before you continue!!
 
+    NOTE: Check and install dependencies under your own judgement!
+
     "
 
     while true; do
         read -p "Do you installed the dependencies?[Y/n]: " yn
         case $yn in
             [Yy]* ) break;;
-            [Nn]* ) echo "Run it then come back later!"; exit;;
+            [Nn]* ) echo "Install the dependencies then run 'bash ~/.hc-vim/viminstall'!"; exit;;
             * ) echo "Please answer Y(Yes) or n(no).";;
         esac
     done
@@ -52,22 +54,18 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 
     #### IMPORTANT ####
 
-    Please accept the execution of ubuntu-dependencies file.
-    If you want todo it later, you can run the following command yourself:
-    --> bash ~/.hc-vim/ubuntu-dependencies
+    You will need to run every command from ~/.hc-vim/your_distro-dependencies
+    before you continue!!
 
-    ! Mandatory for vim to have correct fonts, YouCompleteMe to work
-    and to have some linters working!
-
-    ! Be sure your user is a sudoer when you run ubuntu-dependencies.!
+    NOTE: Check and install dependencies under your own judgement!
 
     "
 
     while true; do
-        read -p "Do you want to proceed to installing dependencies?[Y/n]: " yn
+        read -p "Do you installed the dependencies?[Y/n]: " yn
         case $yn in
-            [Yy]* ) bash ~/.hc-vim/ubuntu-dependencies; break;;
-            [Nn]* ) echo "Ok. Don't forget to run bash ~/.hc-vim/ubuntu-dependencies later!"; break;;
+            [Yy]* ) break;;
+            [Nn]* ) echo "Install the dependencies then run 'bash ~/.hc-vim/viminstall'!"; exit;;
             * ) echo "Please answer Y(Yes) or n(no).";;
         esac
     done
