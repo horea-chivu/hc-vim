@@ -54,3 +54,7 @@ sudo pacman -S clang
 
 source ~/.bash_profile
 source ~/.profile
+
+
+# After installation, please link ~/.vim  and ~/.vim/.vimrc in /root directory
+# Then run in "~/.vim/plugged/YouCompleteMe" directory "./install.py --all --system-libclangpwd"

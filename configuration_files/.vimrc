@@ -138,7 +138,7 @@ endif
 
 if has("gui_running")
     " The font
-    set guifont=Monaco\ 14,Monospace\ 14        " Font and size
+    set guifont=Monaco\ 11,Monospace\ 10        " Font and size
 endif
 
 if has("gui_macvim")
